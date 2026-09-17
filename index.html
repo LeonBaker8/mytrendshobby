@@ -144,6 +144,9 @@
     @media(max-width:1450px){.model-viewer{grid-template-columns:minmax(390px,.95fr) minmax(410px,1.05fr);gap:32px}.model-viewer .detail-title{margin-top:28px;font-size:clamp(38px,4vw,58px)}.model-viewer .detail-meta{margin-bottom:28px}.model-viewer .spec{padding:12px 0}.model-viewer .detail-note{margin-top:20px}}
     @media(max-width:1180px){.model-viewer{grid-template-columns:1fr;width:min(100%,820px);gap:24px}.model-viewer .detail-visual{max-width:820px;margin:0 auto}.model-viewer .detail-info{padding-top:8px}.model-viewer .detail-title{max-width:none;margin-top:24px}.photo-panel .detail-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:760px){html,body{overflow-x:hidden}.detail-page,.model-viewer,.model-viewer .detail-visual,.model-viewer .detail-info{width:100%;max-width:100%;min-width:0}.model-viewer{display:flex;flex-direction:column;gap:18px;padding-top:14px;overflow:hidden}.model-viewer .detail-visual{min-height:0;aspect-ratio:1}.model-viewer .detail-visual img{width:100%;max-width:100%;height:100%;object-fit:contain}.model-viewer .detail-info{overflow:hidden}.model-viewer .detail-heading{flex-wrap:wrap}.model-viewer .detail-title{width:100%;max-width:100%;margin:20px 0 14px;font-size:clamp(33px,10vw,44px);letter-spacing:-1.9px;overflow-wrap:anywhere;word-break:normal}.model-viewer .detail-meta{margin-bottom:22px}.model-viewer .spec{grid-template-columns:minmax(90px,1fr) minmax(0,1.35fr);padding:13px 0}.model-viewer .spec dd{font-size:14px;overflow-wrap:anywhere}.model-viewer .detail-note{font-size:13px}.photo-tabs{width:100%}.photo-tab{flex:1 1 calc(50% - 6px);min-height:48px;padding:0 12px}.photo-panel .detail-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    .model-card:not(.set-card):not(.prototype-card) .card-body{height:112px}
+    .model-packaging{height:30px;margin-top:7px;color:#85857e;font-size:10px;font-weight:800;letter-spacing:.65px;line-height:1.35;text-transform:uppercase;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+    @media(max-width:680px){.model-card:not(.set-card):not(.prototype-card) .card-body{height:102px}.model-packaging{height:28px;margin-top:5px;font-size:9px}}
   </style>
 </head>
 <body>
@@ -219,7 +222,7 @@ Color: Blue
 090
 SKU: 241085(A)
 Car brand: Porsche
-Release Date: 2025
+Release Date: August 2025
 Name: Porsche 911 GT1 LM 1998 Carbon Edition
 Event: Hong Kong Toycar Salon 2025
 Quantity: 1500
@@ -237,6 +240,7 @@ SKU: 241084(B)
 Car brand: Porsche
 Release Date: 2025
 Name: Porsche 911 GT3 R DTM 2024 #90
+Event: The Model Car Show Singapore 2025
 Driver: Ayhancan Güven
 
 093
@@ -244,12 +248,13 @@ SKU: 241084(C)
 Car brand: Porsche
 Release Date: 2025
 Name: Porsche 911 GT3 R DTM 2024 #91
+Event: The Model Car Show Singapore 2025
 Driver: Thomas Preining
 
 094
 SKU: 241084(C)
 Car brand: Porsche
-Release Date: 2025
+Release Date: September 2025
 Name: Porsche Cayenne Turbo GT Weissach Purple
 Event: The Model Car Show Singapore 2025
 Quantity: 500
@@ -257,14 +262,15 @@ Quantity: 500
 095
 SKU: 241085(B)
 Car brand: Porsche
-Release Date: 2025
+Release Date: November 2025
 Name: Porsche 911 GT1 LM 1998 #26
+Event: Hangzhou International Model Culture Festival 2025
 Driver: Allan McNish, Stéphane Ortelli, Laurent Aïello
 
 096
 SKU: 241080(I)
 Car brand: McLaren
-Release Date: 2025
+Release Date: November 2025
 Name: McLaren Senna GTR #33 Polaris Blue
 Event: Hangzhou Hobby Culture Festival 2025
 Quantity: 1888
@@ -272,7 +278,7 @@ Quantity: 1888
 097
 SKU: 241080(J)
 Car brand: McLaren
-Release Date: 2025
+Release Date: November 2025
 Name: McLaren Senna GTR Chameleon Purple
 Event: Hangzhou Hobby Culture Festival 2025
 Quantity: 2888
@@ -280,14 +286,16 @@ Quantity: 2888
 098
 SKU: 241090(B)
 Car brand: Porsche
-Release Date: 2025
+Release Date: February 2025
 Name: Porsche Cayenne Turbo GT Weissach Grey
+Event: HEC Hangzhou 2025 Exclusive
 
 099
 SKU: 241090(C)
 Car brand: Porsche
-Release Date: 2025
+Release Date: February 2025
 Name: Porsche Cayenne Turbo GT Weissach Blue
+Event: HEC Hangzhou 2025 Exclusive
 
 104
 SKU: 241087(A)
@@ -386,7 +394,7 @@ SKU: COKE241080
 Car brand: McLaren
 Release Date: April 2026
 Name: McLaren Senna GTR Coke
-Event: Tiny x Mira Place 2026
+Event: Hong Kong Mira Place 2026
 Quantity: 2000
 
 119
@@ -623,10 +631,10 @@ Quantity: 6000`;
   // Status, price and purchase date retained from the original collection index.
   const collectionData = {
     79:{status:'wishlist'},80:{status:'wishlist'},81:{status:'wishlist'},86:{status:'wishlist'},87:{status:'wishlist'},
-    88:{status:'owned',price:13,purchased:'06.06.2026'},89:{status:'owned',price:16,purchased:'06.06.2026'},90:{status:'owned',price:60,purchased:'01.06.2026'},91:{status:'owned',price:93,purchased:'01.06.2026'},92:{status:'owned',price:36,purchased:'09.05.2026'},93:{status:'owned',price:36,purchased:'09.05.2026'},94:{status:'owned',price:83,purchased:'05.05.2026'},95:{status:'owned',price:24,purchased:'01.05.2026'},
-    96:{status:'ordered',price:39,purchased:'25.08.2026'},97:{status:'ordered',price:39,purchased:'25.08.2026'},98:{status:'owned',price:13,purchased:'06.05.2026'},99:{status:'owned',price:13,purchased:'06.05.2026'},101:{status:'wishlist'},102:{status:'wishlist'},103:{status:'wishlist'},104:{status:'owned',price:15,purchased:'04.06.2026'},105:{status:'wishlist'},106:{status:'owned',price:15,purchased:'04.06.2026'},107:{status:'owned',price:15,purchased:'30.05.2026'},108:{status:'owned',price:15,purchased:'30.05.2026'},109:{status:'owned',note:'Gift from RomanRSG'},
-    110:{status:'wishlist'},111:{status:'wishlist'},112:{status:'wishlist'},113:{status:'owned',price:16,purchased:'11.08.2026'},114:{status:'owned',price:16,purchased:'11.08.2026'},115:{status:'wishlist'},116:{status:'wishlist'},117:{status:'owned',price:69,purchased:'06.05.2026',packaging:'Blister'},118:{status:'owned',price:66,purchased:'04.05.2026'},119:{status:'owned',price:19,purchased:'11.08.2026'},120:{status:'owned',price:20,purchased:'13.07.2026'},121:{status:'wishlist'},122:{status:'wishlist'},123:{status:'wishlist'},124:{status:'owned',price:26,purchased:'25.07.2026',packaging:'Acrylic'},125:{status:'owned',price:16,purchased:'13.07.2026'},126:{status:'owned',price:16,purchased:'13.07.2026'},127:{status:'wishlist'},128:{status:'wishlist'},129:{status:'wishlist'},130:{status:'wishlist'},132:{status:'wishlist'},138:{status:'wishlist'},140:{status:'wishlist',packaging:'Blister'},141:{status:'wishlist',packaging:'Blister'},142:{status:'owned',note:'Gift from RomanRSG'},143:{status:'wishlist'},144:{status:'wishlist'},145:{status:'wishlist'},146:{status:'ordered',price:45,purchased:'25.08.2026',packaging:'Blister'},147:{status:'ordered',price:45,purchased:'25.08.2026',packaging:'Blister'},149:{status:'wishlist',packaging:'Acrylic'},159:{status:'wishlist'},160:{status:'wishlist'},163:{status:'wishlist'},164:{status:'wishlist'},
-    '241085(C)-1G':{status:'owned',price:65,purchased:'14.05.2026'},'241084-3G':{status:'wishlist'},'241082HI-2G':{status:'ordered',price:85,purchased:'25.08.2026'}
+    88:{status:'owned',price:13,purchased:'06.06.2026',preorderStarted:'September 17, 2025'},89:{status:'owned',price:16,purchased:'06.06.2026',preorderStarted:'September 17, 2025'},90:{status:'owned',price:60,purchased:'01.06.2026'},91:{status:'owned',price:93,purchased:'01.06.2026'},92:{status:'owned',price:36,purchased:'09.05.2026',preorderStarted:'January 15, 2026',note:"Models No. 092 and No. 093 were originally available exclusively at The Model Car Show Singapore 2025. The exhibition editions featured small differences in both the models and their packaging compared with the versions later released for the wider market."},93:{status:'owned',price:36,purchased:'09.05.2026',note:"Models No. 092 and No. 093 were originally available exclusively at The Model Car Show Singapore 2025. The exhibition editions featured small differences in both the models and their packaging compared with the versions later released for the wider market."},94:{status:'owned',price:83,purchased:'05.05.2026',preorderStarted:'January 15, 2026'},95:{status:'owned',price:24,purchased:'01.05.2026',preorderStarted:'November 13, 2025',note:"Model No. 095 was originally offered at the Hangzhou International Model Culture Festival 2025. The exhibition version contained several production errors: incorrect driver names on the livery, missing wheel prints, and no Le Mans licence sticker on the box. These details were corrected for the subsequent mass-market release."},
+    96:{status:'wishlist'},97:{status:'wishlist'},98:{status:'owned',price:13,purchased:'06.05.2026',preorderStarted:'November 13, 2025',note:"The Grey and Blue Porsche Cayenne Turbo GT Weissach editions were first sold as HEC Hangzhou 2025 exclusives before becoming available more widely."},99:{status:'owned',price:13,purchased:'06.05.2026',preorderStarted:'November 13, 2025',note:"The Grey and Blue Porsche Cayenne Turbo GT Weissach editions were first sold as HEC Hangzhou 2025 exclusives before becoming available more widely."},101:{status:'wishlist'},102:{status:'wishlist'},103:{status:'wishlist'},104:{status:'owned',price:15,purchased:'04.06.2026',preorderStarted:'January 15, 2026'},105:{status:'wishlist'},106:{status:'owned',price:15,purchased:'04.06.2026',preorderStarted:'January 15, 2026'},107:{status:'owned',price:15,purchased:'30.05.2026'},108:{status:'owned',price:15,purchased:'30.05.2026'},109:{status:'owned',note:'Gift from RomanRSG'},
+    110:{status:'wishlist',preorderStarted:'July 25, 2026'},111:{status:'wishlist',preorderStarted:'July 25, 2026'},112:{status:'wishlist',preorderStarted:'July 25, 2026'},113:{status:'owned',price:16,purchased:'11.08.2026',preorderStarted:'March 26, 2026'},114:{status:'owned',price:16,purchased:'11.08.2026',preorderStarted:'March 26, 2026'},115:{status:'wishlist'},116:{status:'wishlist'},117:{status:'owned',price:69,purchased:'06.05.2026',preorderStarted:'June 15, 2026',packaging:'Blister Packaging / Box Packaging',note:"This release exists in two packaging versions. The blister-pack exhibition edition is the version shown here. Pre-orders for the standard boxed edition opened on June 15, 2026."},118:{status:'owned',price:66,purchased:'04.05.2026'},119:{status:'owned',price:19,purchased:'11.08.2026',preorderStarted:'March 26, 2026'},120:{status:'owned',price:20,purchased:'13.07.2026',preorderStarted:'March 26, 2026'},121:{status:'wishlist'},122:{status:'wishlist'},123:{status:'owned',price:21,purchased:'01.09.2026',preorderStarted:'March 26, 2026'},124:{status:'owned',price:26,purchased:'25.07.2026',preorderStarted:'March 26, 2026',packaging:'Acrylic Box Packaging'},125:{status:'owned',price:16,purchased:'13.07.2026',preorderStarted:'April 15, 2026'},126:{status:'owned',price:16,purchased:'13.07.2026',preorderStarted:'April 15, 2026'},127:{status:'wishlist',preorderStarted:'April 15, 2026'},128:{status:'wishlist',preorderStarted:'April 15, 2026'},129:{status:'wishlist',preorderStarted:'April 15, 2026'},130:{status:'wishlist',preorderStarted:'April 15, 2026'},132:{status:'wishlist'},138:{status:'wishlist',preorderStarted:'July 25, 2026'},140:{status:'wishlist',packaging:'Blister Packaging'},141:{status:'wishlist',packaging:'Blister Packaging'},142:{status:'owned',note:'Gift from RomanRSG'},143:{status:'wishlist',preorderStarted:'June 15, 2026'},144:{status:'wishlist',preorderStarted:'July 25, 2026'},145:{status:'wishlist',preorderStarted:'July 25, 2026'},146:{status:'ordered',price:45,purchased:'25.08.2026',packaging:'Blister Packaging'},147:{status:'ordered',price:45,purchased:'25.08.2026',packaging:'Blister Packaging'},149:{status:'wishlist',preorderStarted:'July 25, 2026',packaging:'Acrylic Box Packaging'},159:{status:'wishlist',preorderStarted:'August 21, 2026'},160:{status:'wishlist',preorderStarted:'August 21, 2026'},163:{status:'wishlist',preorderStarted:'August 21, 2026'},164:{status:'wishlist',preorderStarted:'August 21, 2026'},
+    '241085(C)-1G':{status:'owned',price:65,purchased:'14.05.2026'},'241084-3G':{status:'wishlist'},'241082HI-2G':{status:'ordered',price:85,purchased:'25.08.2026',note:"Limited to 6,000 sets, this edition was sold through two exclusive channels. The first 1,000 sets were offered at Hong Kong ToyCar Salon 2026, and the remaining 5,000 sets were released online through the official Trends Hobby Douyin store."}
   };
   const photoFiles = {79:'079.jpg',80:'080.jpg',81:'081.jpg',87:'087.jpg',88:'088-Main-Picture.png',89:'089-Main-Picture.png',90:'090-Main-Picture.png',91:'091-Main-Picture.png',92:'092-Main-Picture.png',93:'093-Main-Picture.png',94:'094-Main-Picture.png',95:'095-Main-Picture.png',96:'096.jpg',97:'097.jpg',98:'098-Main-Picture.png',99:'099-Main-Picture.png',101:'101.jpg',102:'102.jpg',103:'103.jpg',104:'104-Main-Picture.png',106:'106-Main-Picture.png',107:'107-Main-Picture.png',108:'108-Main-Picture.png',109:'109-Main-Picture.png',110:'110.jpeg',111:'111.jpeg',112:'112.jpeg',113:'113-Main-Picture.png',114:'114-Main-Picture.png',115:'115.jpeg',116:'116.jpeg',117:'117-Main-Picture.png',118:'118-Main-Picture.png',119:'119-Main-Picture.png',120:'120-Main-Picture.png',121:'121.JPG',122:'122.JPG',123:'123-Main-Picture.png',124:'124-Main-Picture.png',125:'125-Main-Picture.png',126:'126-Main-Picture.png',127:'127.jpg',128:'128.jpg',129:'129.jpg',130:'130.jpg',132:'132.jpeg',138:'138.jpeg',140:'140.jpeg',141:'141.jpeg',142:'142-Main-Picture.png',143:'143.jpeg',144:'144.jpeg',145:'145.jpeg',146:'146.jpg',147:'147.jpg',149:'149.jpeg',159:'159.jpeg',160:'160.jpeg',163:'163.jpeg',164:'164.jpeg','241085(C)-1G':'241085(C)-1G.jpeg','241084-3G':'241084-3G.jpeg','241082HI-2G':'241082HI-2G.jpeg'};
   const unavailableBrands={79:'Toyota',80:'McLaren',81:'McLaren',86:'McLaren',87:'McLaren',101:'Porsche',102:'Porsche',103:'Porsche',105:'Porsche'};
@@ -639,10 +647,10 @@ Quantity: 6000`;
     raw.trim().split(/\n\s*\n/).forEach(block=>{
       const lines=block.split('\n').map(x=>x.trim()).filter(Boolean), first=lines[0];
       const unavailableLines=lines.map(line=>line.match(/^(\d{3})\s*-\s*Not Presented(?:\s*\((.+)\))?$/i));
-      if(unavailableLines.every(Boolean)){unavailableLines.forEach(no=>{const n=Number(no[1]),name=no[2]||'Not Presented',base=collectionData[n]||{};models.push({id:String(n),number:n,name,brand:unavailableBrands[n]||'',unavailable:true,photo:photoFiles[n]||'',...base,status:'unavailable'})});return}
+      if(unavailableLines.every(Boolean)){unavailableLines.forEach(no=>{const n=Number(no[1]),name=no[2]||'Not Presented',base=collectionData[n]||{};models.push({id:String(n),number:n,name,brand:unavailableBrands[n]||'',unavailable:true,photo:photoFiles[n]||'',...base,packaging:base.packaging||'Box Packaging',status:'unavailable'})});return}
       if(/^\d{3}$/.test(first)){
         const f=fieldMap(lines.slice(1)),n=Number(first),base=collectionData[n]||{status:'preorder'};
-        models.push({id:String(n),number:n,name:f.Name||'Not Presented',brand:f['Car brand']||'',sku:f.SKU||'',release:f['Release Date']||'',color:f.Color||'',event:f.Event||'',quantity:f.Quantity||'',driver:f.Driver||'',...base,status:releaseStatus(base.status,f['Release Date']),photo:photoFiles[n]||''});return;
+        models.push({id:String(n),number:n,name:f.Name||'Not Presented',brand:f['Car brand']||'',sku:f.SKU||'',release:f['Release Date']||'',color:f.Color||'',event:f.Event||'',quantity:f.Quantity||'',driver:f.Driver||'',...base,packaging:base.packaging||'Box Packaging',status:releaseStatus(base.status,f['Release Date']),photo:photoFiles[n]||''});return;
       }
       const f=fieldMap(lines.slice(1));if(f.SKU){const base=collectionData[f.SKU]||{status:'wishlist'};sets.push({id:f.SKU,name:first,brand:f['Car brand']||'',sku:f.SKU,release:f['Release Date']||'',event:f.Event||'',quantity:f.Quantity||'',...base,status:releaseStatus(base.status,f['Release Date']),photo:photoFiles[f.SKU]||'',set:true})}
     });
@@ -665,13 +673,13 @@ Quantity: 6000`;
   let activeCasting='all';
   function castingFor(item){return(castings[item.brand]||[]).find(([,pattern])=>pattern.test(item.name))?.[0]||''}
   function renderCastingFilters(){const brand=$('#brand').value,box=$('#castingFilters');if(brand==='all'){activeCasting='all';box.classList.remove('visible');box.innerHTML='';return}const available=[...new Set([...models,...sets].filter(m=>m.brand===brand).map(castingFor).filter(Boolean))];if(!available.length){activeCasting='all';box.classList.remove('visible');box.innerHTML='';return}if(activeCasting!=='all'&&!available.includes(activeCasting))activeCasting='all';box.innerHTML=`<button class="chip ${activeCasting==='all'?'active':''}" type="button" data-casting="all">All</button>`+available.map(name=>`<button class="chip ${activeCasting===name?'active':''}" type="button" data-casting="${esc(name)}">${esc(name)}</button>`).join('');box.classList.add('visible')}
-  function card(item){const isSet=Boolean(item.set),openAttr=isSet?`data-open-set="${esc(item.id)}"`:`data-open="${esc(item.id)}"`,code=item.prototype?item.id:isSet?'SPECIAL SET':`#${pad(item.number)}`,showCode=!String(item.photo||'').includes('-Main-Picture');return `<article class="model-card ${isSet?'set-card':''} ${item.prototype?'prototype-card':''}" tabindex="0" ${openAttr}><div class="photo-tile">${photoMarkup(item)}${showCode?`<span class="model-code">${code}</span>`:''}<span class="pill ${statusClass(item.status)}">${statusLabel(item.status)}</span></div><div class="card-body"><div class="model-name">${esc(item.name)}</div></div></article>`}
+  function card(item){const isSet=Boolean(item.set),openAttr=isSet?`data-open-set="${esc(item.id)}"`:`data-open="${esc(item.id)}"`,code=item.prototype?item.id:isSet?'SPECIAL SET':`#${pad(item.number)}`,showCode=!String(item.photo||'').includes('-Main-Picture'),packaging=!isSet&&!item.prototype?`<div class="model-packaging">${esc(item.packaging)}</div>`:'';return `<article class="model-card ${isSet?'set-card':''} ${item.prototype?'prototype-card':''}" tabindex="0" ${openAttr}><div class="photo-tile">${photoMarkup(item)}${showCode?`<span class="model-code">${code}</span>`:''}<span class="pill ${statusClass(item.status)}">${statusLabel(item.status)}</span></div><div class="card-body"><div class="model-name">${esc(item.name)}</div>${packaging}</div></article>`}
   function syncSideNavigation(){const brand=$('#brand').value,status=$('#status').value,type=$('#type').value;document.querySelectorAll('[data-nav-type]').forEach(button=>button.classList.toggle('active',button.dataset.navType===type&&brand==='all'&&status==='all'));document.querySelectorAll('[data-nav-status]').forEach(button=>button.classList.toggle('active',button.dataset.navStatus===status));document.querySelectorAll('[data-nav-brand]').forEach(button=>button.classList.toggle('active',button.dataset.navBrand===brand));$('[data-nav-reset]').classList.toggle('active',type==='all'&&brand==='all'&&status==='all')}
   function renderGroup(key,title,list){return `<section class="catalog-group catalog-group-${key}"><div class="catalog-group-head"><span>${title}</span><b>${list.length}</b></div><div class="catalog-group-grid">${list.map(card).join('')}</div></section>`}
   function renderModels(){const query=$('#search').value.trim().toLowerCase(),status=$('#status').value,brand=$('#brand').value,type=$('#type').value,sort=$('#sort').value;let list=[...sets,...models].filter(m=>{const text=[m.id,m.number,m.name,m.brand,m.sku,m.event,m.eventDate,m.driver,m.color,m.prototype?'prototype':m.set?'set':'model'].join(' ').toLowerCase();return(!query||text.includes(query))&&(status==='all'||m.status===status)&&(brand==='all'||m.brand===brand)&&(type==='all'||(type==='set'?m.set:!m.set))&&(activeCasting==='all'||castingFor(m)===activeCasting)});list.sort((a,b)=>{const order=m=>m.set?-1:m.prototype?100000+Number(m.id.slice(2)):m.number||0,delta=order(a)-order(b);return sort==='reverse'?-delta:delta});const grouped=type==='all'||list.some(m=>m.prototype),grid=$('#modelGrid');grid.classList.toggle('catalog-groups',grouped);if(grouped){const groups=[['sets','Special sets',list.filter(m=>m.set)],['models','Models',list.filter(m=>!m.set&&!m.prototype)],['prototypes','Prototypes',list.filter(m=>m.prototype)]].filter(([, ,items])=>items.length);grid.innerHTML=groups.map(([key,title,items])=>renderGroup(key,title,items)).join('')}else grid.innerHTML=list.map(card).join('');$('#emptyState').style.display=list.length?'none':'block';$('#resultCount').textContent=`${list.length} ${list.length===1?'item':'items'}`;syncSideNavigation()}
   const brandLogo={Bugatti:'bugatti',Ford:'ford',Lamborghini:'lamborghini',McLaren:'mclaren',Porsche:'porsche',Toyota:'toyota'};
   function setupStats(){const items=[...models,...sets],owned=items.filter(m=>m.status==='owned'),ordered=items.filter(m=>m.status==='ordered'),wishlist=items.filter(m=>m.status==='wishlist'),preorder=items.filter(m=>m.status==='preorder'),unavailable=items.filter(m=>m.status==='unavailable'),prototype=items.filter(m=>m.status==='prototype'),brands=[...new Set(items.map(m=>m.brand).filter(Boolean))].sort();$('#summaryTotal').textContent=items.length;$('#summaryOwned').textContent=owned.length;$('#summaryOrdered').textContent=ordered.length;$('#summaryWishlist').textContent=wishlist.length;$('#summaryPreorder').textContent=preorder.length;$('#summaryUnavailable').textContent=unavailable.length;$('#summaryPrototype').textContent=prototype.length;const brandSelect=$('#brand');brands.forEach(b=>brandSelect.insertAdjacentHTML('beforeend',`<option value="${esc(b)}">${esc(b)}</option>`));$('#brandNav').innerHTML=brands.map(b=>`<button class="side-item brand-item" type="button" data-nav-brand="${esc(b)}"><img class="brand-mark" src="Assets/${esc(brandLogo[b])}.svg" alt="" aria-hidden="true">${esc(b)}<span class="nav-count">${items.filter(m=>m.brand===b&&!m.set).length}</span></button>`).join('')}
-  function detailRows(item){const acquired=item.status==='owned'||item.status==='ordered',rows=[item.prototype?null:['SKU',item.sku],['Brand',item.brand],item.prototype?null:['Release',item.release],['Color',item.color],['Event',item.event],['Event Date',item.eventDate],['Quantity',item.quantity&&item.quantity+' pcs'],['Driver',item.driver],['Purchase price',acquired&&money(item.price)],['Purchase date',acquired&&item.purchased],['Packaging',item.packaging]];return rows.filter(row=>row&&row[1]).map(([k,v])=>`<div class="spec"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}
+  function detailRows(item){const acquired=item.status==='owned'||item.status==='ordered',rows=[item.prototype?null:['SKU',item.sku],['Brand',item.brand],item.prototype?null:['Release',item.release],item.prototype?null:['Pre-Order Starting Date',item.preorderStarted],['Color',item.color],['Event',item.event],['Event Date',item.eventDate],['Quantity',item.quantity&&item.quantity+' pcs'],['Driver',item.driver],['Purchase price',acquired&&money(item.price)],['Purchase date',acquired&&item.purchased],['Packaging',item.packaging]];return rows.filter(row=>row&&row[1]).map(([k,v])=>`<div class="spec"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}
   function gallerySection(index,kicker,title,copy,photos,emptyText,tone){const gallery=photos.length?`<div class="detail-gallery">${photos.map((photo,i)=>`<button class="detail-gallery-photo" type="button" data-gallery-photo="${esc(photo.src)}"><img src="${esc(photo.src)}" alt="${esc(photo.alt)}"><span class="gallery-caption">${esc(photo.label||`Photo ${i+1}`)}</span></button>`).join('')}</div>`:`<div class="gallery-empty"><div><span class="gallery-empty-icon">+</span><strong>No photos here yet</strong><span>${esc(emptyText)}</span></div></div>`;return `<section class="detail-section gallery-section gallery-${esc(tone)}"><header class="detail-section-head"><span class="detail-section-index">${esc(index)}</span><div><p class="detail-section-kicker">${esc(kicker)}</p><h2 class="detail-section-title">${esc(title)}</h2><p class="detail-section-copy">${esc(copy)}</p></div><span class="detail-section-count">${photos.length} ${photos.length===1?'photo':'photos'}</span></header>${gallery}</section>`}
   function archivePhotos(value,item,label){return(Array.isArray(value)?value:value?[value]:[]).map((src,i)=>{const path=String(src),resolved=path&&!path.includes('/')?`Assets/${path}`:path;return{src:resolved,alt:`${item.name} — ${label.toLowerCase()} ${i+1}`,label:`${label}${Array.isArray(value)&&value.length>1?' '+(i+1):''}`}})}
   function photoPanelMarkup(group,index){const content=group.photos.length?`<div class="detail-gallery">${group.photos.map(photo=>`<button class="detail-gallery-photo" type="button" data-gallery-photo="${esc(photo.src)}"><img src="${esc(photo.src)}" alt="${esc(photo.alt)}"><span class="gallery-caption">${esc(photo.label)}</span></button>`).join('')}</div>`:`<div class="gallery-empty"><div><span class="gallery-empty-icon">+</span><strong>No photos here yet</strong><span>${esc(group.empty)}</span></div></div>`;return `<div class="photo-panel" id="photo-panel-${esc(group.id)}" role="tabpanel" aria-labelledby="photo-tab-${esc(group.id)}" ${index?'hidden':''}>${content}</div>`}
@@ -688,15 +696,14 @@ Quantity: 6000`;
     const kind=item.prototype?'Prototype':item.set?'Special set':'Model';
     const reference=item.prototype?item.id:item.number?'#'+pad(item.number):'Special set';
     const meta=[reference,item.brand,item.release].filter(Boolean);
-    const mainPhotos=photo?[{src:photo,alt:item.name,label:'Main photo'}]:[];
-    const personalPhotos=archivePhotos(item.personalPhotos,item,'My photo');
+    const personalPhotos=archivePhotos(item.personalPhotos,item,'Personal photo');
     const prototypePhotos=archivePhotos(item.prototypePhotos||item.prototypePhoto,item,'Prototype photo');
     const exhibitionPhotos=archivePhotos(item.exhibitionPhotos,item,'Exhibition photo');
     if(!prototypePhotos.length&&photo&&item.prototype)prototypePhotos.push({src:photo,alt:item.name,label:'Prototype photo'});
-    const groups=[{id:'main',label:'Main',photos:mainPhotos,empty:'The main photograph has not been added.'},{id:'personal',label:'My photos',photos:personalPhotos,empty:'Your personal collection photographs will appear here.'},{id:'prototype',label:'Prototype',photos:prototypePhotos,empty:'A prototype photograph can be added here for this model.'},{id:'exhibition',label:'Exhibition',photos:exhibitionPhotos,empty:'Exhibition photographs have not been added yet.'}];
-    const tabs=groups.map((group,index)=>`<button class="photo-tab" id="photo-tab-${group.id}" type="button" role="tab" aria-controls="photo-panel-${group.id}" aria-selected="${index?'false':'true'}" data-photo-tab="${group.id}">${group.label} · ${group.photos.length}</button>`).join('');
+    const groups=[{id:'personal',label:'Personal Photos',photos:personalPhotos,empty:'Your personal collection photographs will appear here.'},{id:'prototype',label:'Prototype',photos:prototypePhotos,empty:'A prototype photograph can be added here for this model.'},{id:'exhibition',label:'Exhibition',photos:exhibitionPhotos,empty:'Exhibition photographs have not been added yet.'}];
+    const tabs=groups.map((group,index)=>`<button class="photo-tab" id="photo-tab-${group.id}" type="button" role="tab" aria-label="${esc(group.label)}, ${group.photos.length} photos" aria-controls="photo-panel-${group.id}" aria-selected="${index?'false':'true'}" data-photo-tab="${group.id}">${group.label}</button>`).join('');
     const panels=groups.map(photoPanelMarkup).join('');
-    $('#detailView').innerHTML=`<button class="back-link" id="backToCollection" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg> Back to collection</button><section class="detail-layout model-viewer"><div class="detail-visual">${visual}</div><article class="detail-info"><div class="detail-heading"><div class="detail-kind">${esc(kind)} · Collection record</div><span class="detail-status ${statusClass(item.status)}">${statusLabel(item.status)}</span></div><h1 class="detail-title">${esc(item.name)}</h1><div class="detail-meta">${meta.map(value=>`<span>${esc(value)}</span>`).join('')}</div><dl class="spec-list">${detailRows(item)||'<div class="spec"><dt>Information</dt><dd>Not Presented</dd></div>'}</dl><div class="detail-note"><b>Collection note</b>${esc(note)}</div></article></section><section class="photo-library"><header class="photo-library-head"><h2 class="photo-library-title">Photo library</h2><div class="photo-tabs" role="tablist" aria-label="Photo source">${tabs}</div></header>${panels}</section>`;
+    $('#detailView').innerHTML=`<button class="back-link" id="backToCollection" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg> Back to collection</button><section class="detail-layout model-viewer"><div class="detail-visual">${visual}</div><article class="detail-info"><div class="detail-heading"><div class="detail-kind">${esc(kind)} · Collection record</div><span class="detail-status ${statusClass(item.status)}">${statusLabel(item.status)}</span></div><h1 class="detail-title">${esc(item.name)}</h1><div class="detail-meta">${meta.map(value=>`<span>${esc(value)}</span>`).join('')}</div><dl class="spec-list">${detailRows(item)||'<div class="spec"><dt>Information</dt><dd>Not Presented</dd></div>'}</dl><div class="detail-note"><b>Description</b>${esc(note)}</div></article></section><section class="photo-library"><header class="photo-library-head"><h2 class="photo-library-title">Photo Library</h2><div class="photo-tabs" role="tablist" aria-label="Photo source">${tabs}</div></header>${panels}</section>`;
     $('#detailView').style.display='block';
     window.scrollTo({top:0,behavior:'instant'});
     $('#backToCollection').onclick=()=>location.hash='collection';
