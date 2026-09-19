@@ -217,14 +217,14 @@
 088
 SKU: 241079(A)
 Car brand: Toyota
-Release Date: 2025
+Release Date: February 2026
 Name: Toyota Land Cruiser 250 Sand
 Color: Sand
 
 089
 SKU: 241079(B)
 Car brand: Toyota
-Release Date: 2025
+Release Date: February 2026
 Name: Toyota Land Cruiser 250 Blue
 Color: Blue
 
@@ -271,7 +271,7 @@ Quantity: 500
 095
 SKU: 241085(B)
 Car brand: Porsche
-Release Date: November 2025
+Release Date: February 2026
 Name: Porsche 911 GT1 LM 1998 #26
 Event: Hangzhou International Model Culture Festival 2025
 Driver: Allan McNish, Stéphane Ortelli, Laurent Aïello
@@ -689,7 +689,7 @@ Quantity: 6000`;
   let activeCasting='all';
   function castingFor(item){return(castings[item.brand]||[]).find(([,pattern])=>pattern.test(item.name))?.[0]||''}
   function renderCastingFilters(){const brand=$('#brand').value,box=$('#castingFilters');if(brand==='all'){activeCasting='all';box.classList.remove('visible');box.innerHTML='';return}const available=[...new Set([...models,...sets].filter(m=>m.brand===brand).map(castingFor).filter(Boolean))];if(!available.length){activeCasting='all';box.classList.remove('visible');box.innerHTML='';return}if(activeCasting!=='all'&&!available.includes(activeCasting))activeCasting='all';const buttons=`<button class="chip ${activeCasting==='all'?'active':''}" type="button" data-casting="all">All</button>`+available.map(name=>`<button class="chip ${activeCasting===name?'active':''}" type="button" data-casting="${esc(name)}">${esc(name)}</button>`).join('');box.innerHTML=`<span class="casting-label">Show</span><div class="casting-segments">${buttons}</div>`;box.classList.add('visible')}
-  function card(item){const isSet=Boolean(item.set),openAttr=isSet?`data-open-set="${esc(item.id)}"`:`data-open="${esc(item.id)}"`,code=item.prototype?item.id:isSet?'SPECIAL SET':`#${pad(item.number)}`,showCode=!String(item.photo||'').includes('-Main-Picture'),name=displayName(item.name),packaging=item.packaging||'Box Packaging';return `<article class="model-card ${isSet?'set-card':''} ${item.prototype?'prototype-card':''}" tabindex="0" ${openAttr}><div class="photo-tile">${photoMarkup({...item,name})}${showCode?`<span class="model-code">${code}</span>`:''}<span class="pill ${statusClass(item.status)}">${statusLabel(item.status)}</span></div><div class="card-body"><div class="card-meta-line"><span>${esc(releaseTypeFor(item))}</span><i></i>${packagingMeta(packaging)}</div><div class="model-name">${esc(name)}</div></div></article>`}
+  function card(item){const isSet=Boolean(item.set),openAttr=isSet?`data-open-set="${esc(item.id)}"`:`data-open="${esc(item.id)}"`,setNumber=isSet?sets.indexOf(item)+1:0,code=item.prototype?item.id:isSet?`SET #${setNumber}`:`#${pad(item.number)}`,showCode=isSet||!String(item.photo||'').includes('-Main-Picture'),name=displayName(item.name),packaging=item.packaging||'Box Packaging';return `<article class="model-card ${isSet?'set-card':''} ${item.prototype?'prototype-card':''}" tabindex="0" ${openAttr}><div class="photo-tile">${photoMarkup({...item,name})}${showCode?`<span class="model-code">${code}</span>`:''}<span class="pill ${statusClass(item.status)}">${statusLabel(item.status)}</span></div><div class="card-body"><div class="card-meta-line"><span>${esc(releaseTypeFor(item))}</span><i></i>${packagingMeta(packaging)}</div><div class="model-name">${esc(name)}</div></div></article>`}
   function syncSideNavigation(){const brand=$('#brand').value,status=$('#status').value,type=$('#type').value;document.querySelectorAll('[data-nav-type]').forEach(button=>button.classList.toggle('active',button.dataset.navType===type&&brand==='all'&&status==='all'));document.querySelectorAll('[data-nav-status]').forEach(button=>button.classList.toggle('active',button.dataset.navStatus===status));document.querySelectorAll('[data-nav-brand]').forEach(button=>button.classList.toggle('active',button.dataset.navBrand===brand));$('[data-nav-reset]').classList.toggle('active',type==='all'&&brand==='all'&&status==='all')}
   function renderGroup(key,title,list){return `<section class="catalog-group catalog-group-${key}"><div class="catalog-group-head"><span>${title}</span><b>${list.length}</b></div><div class="catalog-group-grid">${list.map(card).join('')}</div></section>`}
   function syncHomeHero(){const home=$('#search').value.trim()===''&&$('#status').value==='all'&&$('#brand').value==='all'&&$('#type').value==='all'&&activeCasting==='all'&&!location.hash.match(/^#(model|set)\//);$('#homeHero').hidden=!home}
