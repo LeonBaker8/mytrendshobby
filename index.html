@@ -150,7 +150,7 @@
     @media(max-width:1180px){.model-viewer{grid-template-columns:1fr;width:min(100%,820px);gap:24px}.model-viewer .detail-visual{max-width:820px;margin:0 auto}.model-viewer .detail-info{padding-top:8px}.model-viewer .detail-title{max-width:none;margin-top:24px}.photo-panel .detail-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:760px){html,body{overflow-x:hidden}.detail-page,.model-viewer,.model-viewer .detail-visual,.model-viewer .detail-info{width:100%;max-width:100%;min-width:0}.model-viewer{display:flex;flex-direction:column;gap:18px;padding-top:14px;overflow:hidden}.model-viewer .detail-visual{min-height:0;aspect-ratio:1}.model-viewer .detail-visual img{width:100%;max-width:100%;height:100%;object-fit:contain}.model-viewer .detail-info{overflow:hidden}.model-viewer .detail-title{width:100%;max-width:100%;margin:10px 0 14px;font-size:clamp(31px,9vw,40px);letter-spacing:-1.6px;overflow-wrap:anywhere;word-break:normal}.model-viewer .detail-meta{margin-bottom:22px}.model-viewer .spec{grid-template-columns:minmax(90px,1fr) minmax(0,1.35fr);padding:13px 0}.model-viewer .spec dd{font-size:14px;overflow-wrap:anywhere}.model-viewer .detail-note{font-size:13px}.photo-tabs{width:100%}.photo-tab{flex:1 1 calc(50% - 6px);min-height:48px;padding:0 12px}.photo-panel .detail-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
   </style>
-  <link rel="stylesheet" href="green-theme.css">
+  <link rel="stylesheet" href="green-theme.css?v=3.9">
 </head>
 <body>
   <div class="app-layout">
@@ -175,8 +175,8 @@
           <button class="side-item side-status" type="button" data-nav-status="ordered"><span class="status-dot ordered"></span>Ordered <span class="nav-count" id="summaryOrdered">0</span></button>
           <button class="side-item side-status" type="button" data-nav-status="preorder"><span class="status-dot preorder"></span>Pre-Order <span class="nav-count" id="summaryPreorder">0</span></button>
           <button class="side-item side-status" type="button" data-nav-status="wishlist"><span class="status-dot wishlist"></span>Wishlist <span class="nav-count" id="summaryWishlist">0</span></button>
-          <button class="side-item side-status" type="button" data-nav-status="unavailable"><span class="status-dot unavailable"></span>To Be Presented <span class="nav-count" id="summaryUnavailable">0</span></button>
-          <button class="side-item side-status" type="button" data-nav-status="prototype"><span class="status-dot prototype"></span>Prototype <span class="nav-count" id="summaryPrototype">0</span></button>
+          <button class="side-item side-status" type="button" data-nav-status="unavailable"><span class="status-dot unavailable"></span>To Be Announced <span class="nav-count" id="summaryUnavailable">0</span></button>
+          <button class="side-item side-status" type="button" data-nav-status="prototype"><span class="status-dot prototype"></span>Prototype <span class="nav-count" id="summaryPrototype">0</span></button><button class="side-item side-status" type="button" data-nav-status="newtooling"><span class="status-dot newtooling"></span>New Tooling <span class="nav-count" id="summaryNewTooling">0</span></button>
         </section>
       </nav>
       <span id="summaryTotal" hidden>0</span>
@@ -191,10 +191,10 @@
       </section>
       <div class="brand-ticker" aria-hidden="true"><div>PORSCHE <i>•</i> LAMBORGHINI <i>•</i> MCLAREN <i>•</i> TOYOTA <i>•</i> BUGATTI <i>•</i> FORD <i>•</i>&nbsp;</div><div>PORSCHE <i>•</i> LAMBORGHINI <i>•</i> MCLAREN <i>•</i> TOYOTA <i>•</i> BUGATTI <i>•</i> FORD <i>•</i>&nbsp;</div><div>PORSCHE <i>•</i> LAMBORGHINI <i>•</i> MCLAREN <i>•</i> TOYOTA <i>•</i> BUGATTI <i>•</i> FORD <i>•</i>&nbsp;</div></div>
       <main class="shell catalog-page" id="catalogView">
-        <section id="collection"><div class="section-head"><div><p class="collection-kicker">Master catalogue</p><h2 class="section-title">Collection feed</h2></div><span class="result-count" id="resultCount">0 items</span></div>
+        <section id="collection"><div class="section-head"><span class="result-count" id="resultCount">0 items</span></div>
           <div class="filter-panel">
             <label class="field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.2-4.2"/></svg><input id="search" placeholder="Search model, SKU, brand, driver or event"></label>
-            <select id="status" aria-label="Status"><option value="all">All statuses</option><option value="owned">Owned</option><option value="ordered">Ordered</option><option value="preorder">Pre-Order</option><option value="wishlist">Wishlist</option><option value="unavailable">To Be Presented</option><option value="prototype">Prototype</option></select>
+            <select id="status" aria-label="Status"><option value="all">All statuses</option><option value="owned">Owned</option><option value="ordered">Ordered</option><option value="preorder">Pre-Order</option><option value="wishlist">Wishlist</option><option value="unavailable">To Be Announced</option><option value="prototype">Prototype</option><option value="newtooling">New Tooling</option></select>
             <div class="sort-switcher"><span>Sort</span><div class="sort-segments" id="sortControl" role="group" aria-label="Sort collection"><button class="active" type="button" data-sort="number" onclick="setSort('number')">Default order</button><button type="button" data-sort="reverse" onclick="setSort('reverse')">Reverse order</button></div><select id="sort" hidden aria-label="Sort collection"><option value="number">Default order</option><option value="reverse">Reverse order</option></select></div>
             <button class="reset" type="button" id="reset">Reset</button>
             <select id="brand" hidden aria-label="Brand"><option value="all">All Brands</option></select>
@@ -206,13 +206,13 @@
       </main>
 
       <main class="shell detail-page" id="detailView"></main>
-      <footer class="shell footer"><span>MY TRENDS HOBBY · VERSION 3.8</span><span>Product information from TH archive · Prices and purchase dates from the collection record</span></footer>
+      <footer class="shell footer"><span>MY TRENDS HOBBY · VERSION 3.9</span><span>Product information from TH archive · Prices and purchase dates from the collection record</span></footer>
     </div>
   </div>
   <div class="lightbox" id="lightbox" aria-hidden="true"><button type="button" aria-label="Close photo">×</button><img id="lightboxImage" alt=""></div>
 
   <script>
-  // Official information supplied in TH.txt. Entries without a listing deliberately remain "Not Presented".
+  // Official information supplied in TH.txt. Entries without a listing deliberately remain "Not Announced".
   const sourceData = `
 088
 SKU: 241079(A)
@@ -592,29 +592,29 @@ Car brand: Bugatti
 Release Date: Pre-Order
 Name: Bugatti Tourbillon Gold
 
-079 - Not Presented (Toyota Land Cruiser 250 Red)
-080 - Not Presented (Mclaren Senna GTR Blue/White)
-081 - Not Presented (Mclaren Senna GTR Red/White)
-082 - Not Presented
-083 - Not Presented
-084 - Not Presented
-085 - Not Presented
-086 - Not Presented (Mclaren Senna GTR Red)
-087 - Not Presented (Mclaren Senna GTR Orange/Blue)
-100 - Not Presented
-101 - Not Presented (Porsche Cayenne Turbo GT Orange)
-102 - Not Presented (Porsche Cayenne Turbo GT Grey)
-103 - Not Presented (Porsche Cayenne Turbo GT Green)
-105 - Not Presented (Porsche Taycan Turbo GT Grey)
-131 - Not Presented
-133 - Not Presented
-134 - Not Presented
-135 - Not Presented
-136 - Not Presented
-137 - Not Presented
-139 - Not Presented
-148 - Not Presented
-150 - Not Presented
+079 - Not Announced (Toyota Land Cruiser 250 Red)
+080 - Not Announced (Mclaren Senna GTR Blue/White)
+081 - Not Announced (Mclaren Senna GTR Red/White)
+082 - Not Announced
+083 - Not Announced
+084 - Not Announced
+085 - Not Announced
+086 - Not Announced (Mclaren Senna GTR Red)
+087 - Not Announced (Mclaren Senna GTR Orange/Blue)
+100 - Not Announced
+101 - Not Announced (Porsche Cayenne Turbo GT Orange)
+102 - Not Announced (Porsche Cayenne Turbo GT Grey)
+103 - Not Announced (Porsche Cayenne Turbo GT Green)
+105 - Not Announced (Porsche Taycan Turbo GT Grey)
+131 - Not Announced
+133 - Not Announced
+134 - Not Announced
+135 - Not Announced
+136 - Not Announced
+137 - Not Announced
+139 - Not Announced
+148 - Not Announced
+150 - Not Announced
 
 Porsche 911 GT1 LM 1998 #26 (Ice Race Aspen 2024)
 SKU: 241085(C)-1G
@@ -646,7 +646,7 @@ Quantity: 6000`;
     '241085(C)-1G':{status:'owned',price:65,purchased:'14.05.2026'},'241084-3G':{status:'wishlist',note:"Partway through the exhibition, Trends Hobby withdrew this set from sale after discovering a production issue affecting the tyre graphics. The printed markings were rubbing against the protective blister inside the packaging, causing them to smear."},'241082HI-2G':{status:'ordered',price:85,purchased:'25.08.2026',note:"Limited to 6,000 sets, this edition was sold through two exclusive channels. The first 1,000 sets were offered at Hong Kong ToyCar Salon 2026, and the remaining 5,000 sets were released online through the official Trends Hobby Douyin store."}
   };
   const photoFiles = {79:'079.jpg',80:'080.jpg',81:'081.jpg',87:'087.jpg',88:'088-Main-Picture.png',89:'089-Main-Picture.png',90:'090-Main-Picture.png',91:'091-Main-Picture.png',92:'092-Main-Picture.png',93:'093-Main-Picture.png',94:'094-Main-Picture.png',95:'095-Main-Picture.png',96:'096.jpg',97:'097.jpg',98:'098-Main-Picture.png',99:'099-Main-Picture.png',101:'101-Main-Picture.png',102:'102.jpg',103:'103.jpg',104:'104-Main-Picture.png',105:'105-Main-Picture.png',106:'106-Main-Picture.png',107:'107-Main-Picture.png',108:'108-Main-Picture.png',109:'109-Main-Picture.png',110:'110.jpeg',111:'111.jpeg',112:'112.jpeg',113:'113-Main-Picture.png',114:'114-Main-Picture.png',115:'115.jpeg',116:'116.jpeg',117:'117-Main-Picture.png',118:'118-Main-Picture.png',119:'119-Main-Picture.png',120:'120-Main-Picture.png',121:'121.JPG',122:'122.JPG',123:'123-Main-Picture.png',124:'124-Main-Picture.png',125:'125-Main-Picture.png',126:'126-Main-Picture.png',127:'127-Main-Picture.png',128:'128.jpg',129:'129.jpg',130:'130.jpg',132:'132-Main-Picture.png',138:'138.jpeg',140:'140.jpeg',141:'141.jpeg',142:'142-Main-Picture.png',143:'143.jpeg',144:'144.jpeg',145:'145.jpeg',146:'146-Main-Picture.png',147:'147-Main-Picture.png',149:'149.jpeg',159:'159.jpeg',160:'160.jpeg',163:'163.jpeg',164:'164.jpeg','241085(C)-1G':'Set-01-Main-Picture.png','241084-3G':'Set-02-Main-Picture.png','241082HI-2G':'Set-03-Main-Picture.png'};
-  const secondaryPhotoFiles={117:['117-2nd.png']};
+  const secondaryPhotoFiles={117:['Catalog Pictures/117-2nd.png']};
   const unavailableBrands={79:'Toyota',80:'McLaren',81:'McLaren',86:'McLaren',87:'McLaren',101:'Porsche',102:'Porsche',103:'Porsche',105:'Porsche'};
 
   function fieldMap(lines){const info={};lines.forEach(line=>{const at=line.indexOf(':');if(at>0)info[line.slice(0,at).trim()]=line.slice(at+1).trim()});return info}
@@ -656,53 +656,77 @@ Quantity: 6000`;
     const models=[],sets=[];
     raw.trim().split(/\n\s*\n/).forEach(block=>{
       const lines=block.split('\n').map(x=>x.trim()).filter(Boolean), first=lines[0];
-      const unavailableLines=lines.map(line=>line.match(/^(\d{3})\s*-\s*Not Presented(?:\s*\((.+)\))?$/i));
-      if(unavailableLines.every(Boolean)){unavailableLines.forEach(no=>{const n=Number(no[1]),name=no[2]||'Not Presented',base=collectionData[n]||{};models.push({id:String(n),number:n,name,brand:unavailableBrands[n]||'',unavailable:true,photo:photoFiles[n]||'',...base,packaging:base.packaging||'Box Packaging',status:'unavailable'})});return}
+      const unavailableLines=lines.map(line=>line.match(/^(\d{3})\s*-\s*Not Announced(?:\s*\((.+)\))?$/i));
+      if(unavailableLines.every(Boolean)){unavailableLines.forEach(no=>{const n=Number(no[1]),name=no[2]||'Not Announced',base=collectionData[n]||{};models.push({id:String(n),number:n,name,brand:unavailableBrands[n]||'',unavailable:true,photo:photoFiles[n]||'',...base,packaging:base.packaging||'Box Packaging',status:'unavailable'})});return}
       if(/^\d{3}$/.test(first)){
         const f=fieldMap(lines.slice(1)),n=Number(first),base=collectionData[n]||{status:'preorder'};
-        models.push({id:String(n),number:n,name:f.Name||'Not Presented',brand:f['Car brand']||'',sku:f.SKU||'',release:f['Release Date']||'',color:f.Color||'',event:f.Event||'',quantity:f.Quantity||'',driver:f.Driver||'',...base,packaging:base.packaging||'Box Packaging',status:releaseStatus(base.status,f['Release Date']),photo:photoFiles[n]||''});return;
+        models.push({id:String(n),number:n,name:f.Name||'Not Announced',brand:f['Car brand']||'',sku:f.SKU||'',release:f['Release Date']||'',color:f.Color||'',event:f.Event||'',quantity:f.Quantity||'',driver:f.Driver||'',...base,packaging:base.packaging||'Box Packaging',status:releaseStatus(base.status,f['Release Date']),photo:photoFiles[n]||''});return;
       }
       const f=fieldMap(lines.slice(1));if(f.SKU){const base=collectionData[f.SKU]||{status:'wishlist'};sets.push({id:f.SKU,name:first,brand:f['Car brand']||'',sku:f.SKU,release:f['Release Date']||'',event:f.Event||'',quantity:f.Quantity||'',...base,status:releaseStatus(base.status,f['Release Date']),photo:photoFiles[f.SKU]||'',set:true})}
     });
     return {models:models.sort((a,b)=>a.number-b.number),sets};
   }
-  const prototypes=[
-    {id:'X-01',prototype:true,status:'prototype',name:'Ford Mustang GT3 DTM 2026',brand:'Ford',event:'Hong Kong ToyCar Salon 2026',eventDate:'August 2026',photo:'Prototypes/X01-Main-Picture.png'},
-    {id:'X-02',prototype:true,status:'prototype',name:'Lamborghini Miura P400',brand:'Lamborghini',event:'Hong Kong ToyCar Salon 2026',eventDate:'August 2026',photo:'Prototypes/X02-Main-Picture.png'}
+  const newToolings=[
+    {id:'X-01',newTooling:true,status:'newtooling',name:'Ford Mustang GT3',brand:'Ford',event:'Hong Kong ToyCar Salon 2026',eventDate:'August 2026',photo:'New Tooling/Ford Mustang GT3.png'},
+    {id:'X-02',newTooling:true,status:'newtooling',name:'Lamborghini Miura P400',brand:'Lamborghini',event:'Hong Kong ToyCar Salon 2026',eventDate:'August 2026',photo:'New Tooling/Lamborghini Miura P400.png'}
   ];
-  const archive=parseArchive(sourceData),models=[...archive.models,...prototypes],sets=archive.sets;
+  const titleUpdates={"119": ["Porsche 911 GT3 R", "Manthey 1st Phorm LeMans 24H LMGT3 Winner 2025 #92"], "124": ["Lamborghini Huracan GT3 EVO2", "Absolute Racing China GT 2026 #63"], "113": ["Porsche 918 Spyder", "Acid Green"], "114": ["Porsche 918 Spyder", "Black"], "88": ["Toyota Land Cruiser 250", "Trail Dust Sand"], "89": ["Toyota Land Cruiser 250", "Heritage Blue"], "95": ["Porsche 911 GT1", "Mobil 1 Le Mans 1998 #26"], "90": ["Porsche 911 GT1", "Porsche AG 1998 Test Car"], "91": ["Porsche 911 GT3 R", "Presentation Car"], "92": ["Porsche 911 GT3 R", "Manthey Racing DTM 2024 #90"], "93": ["Porsche 911 GT3 R", "Manthey Racing DTM 2024 #91"], "94": ["Porsche Cayenne Turbo GT", "Algarve Blue Metallic"], "96": ["McLaren Senna GTR", "Polaris Blue #33"], "97": ["McLaren Senna GTR", "Iridescent Chameleon Purple"], "98": ["Porsche Cayenne Turbo GT", "Arctic Grey"], "99": ["Porsche Cayenne Turbo GT", "Shark Blue"], "101": ["Porsche Cayenne Turbo GT", "Lava Orange"], "102": ["Porsche Cayenne Turbo GT", "Quartzite Grey Metallic"], "103": ["Porsche Cayenne Turbo GT", "Viper Green"], "104": ["Porsche Taycan Turbo GT", "Purple Sky Metallic"], "105": ["Porsche Taycan Turbo GT", "Pale Blue Metallic"], "106": ["Porsche Taycan Turbo GT", "Oak Green Metallic"], "107": ["Lamborghini Huracan GT3 EVO2", "SSR Performance DTM 2023 #92"], "108": ["Lamborghini Huracan GT3 EVO2", "SSR Performance DTM 2023 #94"], "109": ["Lamborghini Huracan GT3 EVO2", "SSR Performance DTM 2023 #6"], "110": ["Porsche 911 GT3 R", "Manthey Racing DTM 2025 #92"], "111": ["Porsche 911 GT3 R", "Manthey Racing DTM 2025 #90"], "112": ["Porsche 911 GT3 R", "Manthey Racing DTM 2025 #91"], "115": ["Porsche 918 Spyder", "Salzburg Racing #05 Matte Black / White"], "116": ["Porsche 918 Spyder", "Salzburg Racing #25 White / Gloss Black"], "142": ["Porsche 918 Spyder", "Salzburg Racing #25 Matte Black / Guards Red"], "117": ["Porsche 911 GT3 R", "Absolute Racing Bathurst 12 Hour 2026 #911"], "118": ["McLaren Senna GTR", "Coke"], "120": ["Porsche 911 GT3 R", "Chip Hart Racing LeMans 24H LMGT3 2025 #90"], "121": ["Lamborghini Temerario", "Basquiat Chrome Gold"], "122": ["Lamborghini Temerario", "Basquiat Chrome Gunmetal"], "123": ["Porsche 911 GT3 R", "Iron Dames LeMans 24H LMGT3 2025 #85"], "125": ["Lamborghini Temerario", "Blu Marinus Matt"], "126": ["Lamborghini Temerario", "Verde Mercurius"], "127": ["Lamborghini Huracan GT3 EVO2", "GRT DTM 2025 #19"], "128": ["Lamborghini Huracan GT3 EVO2", "GRT DTM 2025 #63"], "129": ["Porsche 911 GT3 R", "EMA Motorsport LeMans 24H LMGT3 Winner 2024 #91"], "132": ["Lamborghini Temerario", "Keith Haring"], "138": ["Lamborghini Huracan GT3 EVO2", "GRT DTM 2024 #19"], "140": ["Lamborghini Urus Performante", "Basquiat Matte White"], "141": ["Lamborghini Urus Performante", "Basquiat Matte Black"], "143": ["Lamborghini Huracan GT3 EVO2", "Absolute Racing GTWCA Malaysia 2026 #29"], "144": ["Porsche 911 GT1 1998", "Arctic Silver Metallic"], "145": ["Porsche 911 GT1 1998", "Guards Red"], "146": ["Lamborghini Temerario", "Tokidoki #26"], "147": ["Lamborghini Urus Performante", "Tokidoki #20"], "148": ["Lamborghini Huracan GT3 EVO2", "Absolute Racing China GT 2026 #63"], "159": ["Lamborghini Huracan GT3 EVO2", "GRT DTM 2023 #19"], "160": ["Lamborghini Huracan GT3 EVO2", "Absolute Racing GTWCA Indonesia 2026 #29"], "163": ["Bugatti Tourbillon", "Atlantic Blue"], "164": ["Bugatti Tourbillon", "Dove Beige Metallic / Black"]};
+  const prototypes=[{"id": "P-01", "prototype": true, "status": "prototype", "name": "Chevrolet Corvette Z06 GT3 R JMR Suzuka 1000KM 2026 #99", "titleLines": ["Chevrolet Corvette Z06 GT3 R", "JMR Suzuka 1000KM 2026 #99"], "brand": "Chevrolet", "photo": "Prototypes/Chevrolet Corvette Z06 GT3 R JMR Suzuka 1000KM 2026 #99.png"}, {"id": "P-02", "prototype": true, "status": "prototype", "name": "Porsche 911 GT3 R EVO HZO Fortis Racing GTWCA Japan 2026 #20", "titleLines": ["Porsche 911 GT3 R EVO", "HZO Fortis Racing GTWCA Japan 2026 #20"], "brand": "Porsche", "photo": "Prototypes/Porsche 911 GT3 R EVO HZO Fortis Racing GTWCA Japan 2026 #20.png"}, {"id": "P-03", "prototype": true, "status": "prototype", "name": "Porsche 911 GT3 R EVO HZO Fortis Racing 2026 Shanghai 8Hrs #20", "titleLines": ["Porsche 911 GT3 R EVO", "HZO Fortis Racing 2026 Shanghai 8Hrs #20"], "brand": "Porsche", "photo": "Prototypes/Porsche 911 GT3 R EVO HZO Fortis Racing 2026 Shanghai 8Hrs #20.png"}];
+  titleUpdates['130']=['Porsche 911 GT3 R','Pure Rxcing LeMans 24H LMGT3 2024 #92'];
+  const updatedPhotos={"79": "Catalog Pictures/079-Main-Picture.png", "80": "Catalog Pictures/080-Main-Picture.png", "88": "Catalog Pictures/088-Main-Picture.png", "89": "Catalog Pictures/089-Main-Picture.png", "90": "Catalog Pictures/090-Main-Picture.png", "91": "Catalog Pictures/091-Main-Picture.png", "92": "Catalog Pictures/092-Main-Picture.png", "93": "Catalog Pictures/093-Main-Picture.png", "94": "Catalog Pictures/094-Main-Picture.png", "95": "Catalog Pictures/095-Main-Picture.png", "96": "Catalog Pictures/096-Main-Picture.png", "97": "Catalog Pictures/097-Main-Picture.png", "98": "Catalog Pictures/098-Main-Picture.png", "99": "Catalog Pictures/099-Main-Picture.png", "101": "Catalog Pictures/101-Main-Picture.png", "104": "Catalog Pictures/104-Main-Picture.png", "105": "Catalog Pictures/105-Main-Picture.png", "106": "Catalog Pictures/106-Main-Picture.png", "107": "Catalog Pictures/107-Main-Picture.png", "108": "Catalog Pictures/108-Main-Picture.png", "109": "Catalog Pictures/109-Main-Picture.png", "110": "Catalog Pictures/110-Main-Picture.png", "111": "Catalog Pictures/111-Main-Picture.png", "112": "Catalog Pictures/112-Main-Picture.png", "113": "Catalog Pictures/113-Main-Picture.png", "114": "Catalog Pictures/114-Main-Picture.png", "117": "Catalog Pictures/117-Main-Picture.png", "118": "Catalog Pictures/118-Main-Picture.png", "119": "Catalog Pictures/119-Main-Picture.png", "120": "Catalog Pictures/120-Main-Picture.png", "123": "Catalog Pictures/123-Main-Picture.png", "124": "Catalog Pictures/124-Main-Picture.png", "125": "Catalog Pictures/125-Main-Picture.png", "126": "Catalog Pictures/126-Main-Picture.png", "127": "Catalog Pictures/127-Main-Picture.png", "128": "Catalog Pictures/128-Main-Picture.png", "132": "Catalog Pictures/132-Main-Picture.png", "138": "Catalog Pictures/138-Main-Picture.png", "142": "Catalog Pictures/142-Main-Picture.png", "144": "Catalog Pictures/144-Main-Picture.png", "145": "Catalog Pictures/145-Main-Picture.png", "146": "Catalog Pictures/146-Main-Picture.png", "147": "Catalog Pictures/147-Main-Picture.png", "149": "Catalog Pictures/149-Main-Picture.png", "159": "Catalog Pictures/159-Main-Picture.png", "160": "Catalog Pictures/160-Main-Picture.png", "163": "Catalog Pictures/163-Main-Picture.png", "164": "Catalog Pictures/164-Main-Picture.png"};
+  const archive=parseArchive(sourceData);
+  for(const [id,lines] of Object.entries(titleUpdates)){
+    let item=archive.models.find(m=>m.id===id);
+    if(!item){item={id,number:Number(id),status:'unavailable',unavailable:true};archive.models.push(item)}
+    item.titleLines=lines;item.name=lines.join(' ');item.brand=lines[0].split(' ')[0];
+  }
+  for(const item of archive.models){if(updatedPhotos[item.number])item.photo=updatedPhotos[item.number]}
+  const maxNumber=Math.max(164,...archive.models.map(m=>m.number||0));
+  for(let number=79;number<=maxNumber;number++){
+    if(!archive.models.some(m=>m.number===number))archive.models.push({id:String(number),number,name:'Not Announced',status:'unavailable',unavailable:true,photo:'NotPresented.png'});
+  }
+  for(const item of archive.models){
+    if(!item.titleLines&&item.name!=='Not Announced'){
+      const casting=['Toyota Land Cruiser 250','Mclaren Senna GTR','Lamborghini Huracán GT3 EVO2'].find(name=>item.name.startsWith(name));
+      if(casting)item.titleLines=[casting,item.name.slice(casting.length).trim()].filter(Boolean);
+    }
+  }
+  const models=[...archive.models,...prototypes,...newToolings],sets=archive.sets;
+  sets.forEach((item,index)=>{item.packaging='Diorama Box';item.photo=`Catalog Pictures/Set-${String(index+1).padStart(2,'0')}-Main-Picture.png`});
+  const unknownInfo=item=>item.unavailable||item.prototype||item.newTooling;
+  const titleMarkup=item=>(item.titleLines||[displayName(item.name)]).map(line=>`<span class="name-line">${esc(line)}</span>`).join('');
   const $=s=>document.querySelector(s),esc=v=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const pad=n=>String(n).padStart(3,'0'),money=n=>Number.isFinite(Number(n))?'$'+Number(n).toLocaleString('en-US'):'—';
-  const statusLabel=x=>x==='owned'?'Owned':x==='ordered'?'Ordered':x==='preorder'?'Pre-Order':x==='wishlist'?'Wishlist':x==='prototype'?'Prototype':'To Be Presented';
+  const statusLabel=x=>x==='owned'?'Owned':x==='ordered'?'Ordered':x==='preorder'?'Pre-Order':x==='wishlist'?'Wishlist':x==='prototype'?'Prototype':x==='newtooling'?'New Tooling':'To Be Announced';
   const statusClass=x=>x==='unavailable'?'unavailable':x;
   const displayName=name=>String(name||'').replace(/\s+[—–]\s+/g,' ');
   // Catalogue rule: a model released both exclusively and regularly is classified as Regular Release.
   function releaseTypeFor(item){const note=String(item.note||'');if(/mass-market|wider market|subsequent mass/i.test(note))return'Regular Release';if(item.prototype)return'Prototype';return item.event?'Exclusive Release':'Regular Release'}
-  function packagingMeta(packaging){const value=packaging||'Box Packaging',blister=/blister/i.test(value),box=/box/i.test(value),blisterIcon=`<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6.2 6.8V5.5A3.8 3.8 0 0 1 10 1.8a3.8 3.8 0 0 1 3.8 3.7v1.3"/><path d="M4.5 7.2h11l1.3 10.5H3.2L4.5 7.2Z"/><path d="M6.7 10.2h6.6M7.4 13.3h5.2"/></svg>`,boxIcon=`<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m10 1.8 7 3.7v9L10 18.2l-7-3.7v-9l7-3.7Z"/><path d="m3.3 5.7 6.7 3.6 6.7-3.6M10 9.3v8.4"/></svg>`;if(blister&&box)return`<span class="packaging-meta dual"><span class="packaging-part blister">${blisterIcon}<span>Blister</span></span><b>+</b><span class="packaging-part box">${boxIcon}<span>Box</span></span></span>`;return`<span class="packaging-meta ${blister?'blister':'box'}">${blister?blisterIcon:boxIcon}<span>${blister?'Blister':'Box'}</span></span>`}
+  function packagingMeta(packaging){const value=packaging||'Box Packaging',blister=/blister/i.test(value),box=/box/i.test(value),blisterIcon=`<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6.2 6.8V5.5A3.8 3.8 0 0 1 10 1.8a3.8 3.8 0 0 1 3.8 3.7v1.3"/><path d="M4.5 7.2h11l1.3 10.5H3.2L4.5 7.2Z"/><path d="M6.7 10.2h6.6M7.4 13.3h5.2"/></svg>`,boxIcon=`<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m10 1.8 7 3.7v9L10 18.2l-7-3.7v-9l7-3.7Z"/><path d="m3.3 5.7 6.7 3.6 6.7-3.6M10 9.3v8.4"/></svg>`;if(blister&&box)return`<span class="packaging-meta dual"><span class="packaging-part blister">${blisterIcon}<span>Blister</span></span><b>/</b><span class="packaging-part box">${boxIcon}<span>Box</span></span></span>`;return`<span class="packaging-meta ${blister?'blister':'box'}">${blister?blisterIcon:boxIcon}<span>${blister?'Blister':/acrylic/i.test(value)?'Acrylic Box':/diorama/i.test(value)?'Diorama Box':'Box'}</span></span>`}
   const detailIcons={status:`<svg viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>`,releaseType:`<svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><path d="m6 6 12 12M18 6 6 18"/></svg>`,sku:`<svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM15 14h2v2h-2zm3 3h2v3h-5v-2"/></svg>`,brand:`<svg viewBox="0 0 24 24"><path d="M4 16.5V10l3-4h10l3 4v6.5"/><path d="M6 16.5h12M7 10h10M7 19h2m6 0h2"/></svg>`,calendar:`<svg viewBox="0 0 24 24"><path d="M5 5h14v15H5zM8 3v4m8-4v4M5 9h14"/><path d="M8 12h3v3H8z"/></svg>`,color:`<svg viewBox="0 0 24 24"><path d="M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11Z"/></svg>`,event:`<svg viewBox="0 0 24 24"><path d="M5 21V4m0 1h12l-2 4 2 4H5"/></svg>`,quantity:`<svg viewBox="0 0 24 24"><path d="m12 3 8 4-8 4-8-4 8-4Z"/><path d="m4 12 8 4 8-4M4 17l8 4 8-4"/></svg>`,driver:`<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21c.7-4.2 3.2-6.3 7.5-6.3s6.8 2.1 7.5 6.3"/></svg>`,price:`<svg viewBox="0 0 24 24"><path d="m4 12 8-8h7v7l-8 8-7-7Z"/><circle cx="16" cy="7" r="1"/></svg>`,packaging:`<svg viewBox="0 0 24 24"><path d="m12 3 8 4.2v9.6L12 21l-8-4.2V7.2L12 3Z"/><path d="m4.5 7.5 7.5 4 7.5-4M12 11.5V21"/></svg>`,blister:`<svg viewBox="0 0 24 24"><path d="M7 8V6.5a5 5 0 0 1 10 0V8"/><path d="M5 8.5h14l1.5 12.5h-17L5 8.5Z"/><path d="M8 12h8M9 16h6"/></svg>`};
-  function detailCell(icon,label,value,tone=''){const brandAsset=icon==='brand'&&brandLogo[value],resolvedIcon=icon==='packaging'&&/blister/i.test(value)?'blister':icon,iconMarkup=brandAsset?`<img class="detail-brand-logo" src="Assets/${esc(brandAsset)}.svg" alt="">`:detailIcons[resolvedIcon]||detailIcons.sku;return`<div class="detail-cell ${tone}"><span class="detail-cell-icon ${brandAsset?'brand-logo-icon':''}">${iconMarkup}</span><div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div></div>`}
+  function detailCell(icon,label,value,tone=''){const brandAsset=icon==='brand'&&value!=='Chevrolet'&&brandLogo[value],resolvedIcon=icon==='packaging'&&/blister/i.test(value)?'blister':icon,iconMarkup=brandAsset?`<img class="detail-brand-logo" src="Assets/${esc(brandAsset)}.svg" alt="">`:detailIcons[resolvedIcon]||detailIcons.sku;return`<div class="detail-cell ${tone}"><span class="detail-cell-icon ${brandAsset?'brand-logo-icon':''}">${iconMarkup}</span><div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div></div>`}
   function fitPhoto(img){const tile=img.closest('.photo-tile');if(img.naturalWidth&&img.naturalHeight&&tile)tile.style.setProperty('--photo-ratio',`${img.naturalWidth} / ${img.naturalHeight}`)}
   function imageMissing(img){img.insertAdjacentHTML('afterend','<div class="photo-empty"><span>Photo not presented</span></div>');img.remove()}
-  function photoFor(item){const photo=item.photo||(!item.prototype?'Assets/NotPresented.png':'');return photo&&!photo.includes('/')?`Assets/${photo}`:photo}
+  function photoFor(item){const photo=item.photo||(!item.prototype?'Assets/NotPresented.png':'');return (photo&&!photo.includes('/')?`Assets/${photo}`:photo).split('/').map(encodeURIComponent).join('/')}
   function photoMarkup(item,cls=''){const photo=photoFor(item);return photo?`<img class="${cls}" src="${esc(photo)}" alt="${esc(item.name)}" onload="fitPhoto(this)" onerror="imageMissing(this)">`:`<div class="photo-empty"><span>Photo not presented</span></div>`}
-  const castings={Toyota:[['Land Cruiser 250',/Land Cruiser 250/i]],Bugatti:[['Tourbillon',/Tourbillon/i]],Ford:[['Mustang GT3',/Mustang GT3/i]],Porsche:[['911 GT1',/911 GT1/i],['911 GT3 R',/911 GT3 R/i],['Cayenne Turbo GT',/Cayenne Turbo GT/i],['Taycan Turbo GT',/Taycan Turbo GT/i],['918 Spyder',/918 Spyder/i]],McLaren:[['Senna GTR',/Senna GTR/i]],Lamborghini:[['Huracan GT3 EVO2',/Hurac[aá]n GT3 EVO2/i],['Urus Performante',/Urus Performante/i],['Temerario',/Temerario/i],['Miura P400',/Miura P400/i]]};
+  const castings={Chevrolet:[['Corvette Z06 GT3 R',/Corvette Z06 GT3 R/i]],Toyota:[['Land Cruiser 250',/Land Cruiser 250/i]],Bugatti:[['Tourbillon',/Tourbillon/i]],Ford:[['Mustang GT3',/Mustang GT3/i]],Porsche:[['911 GT1',/911 GT1/i],['911 GT3 R',/911 GT3 R/i],['Cayenne Turbo GT',/Cayenne Turbo GT/i],['Taycan Turbo GT',/Taycan Turbo GT/i],['918 Spyder',/918 Spyder/i]],McLaren:[['Senna GTR',/Senna GTR/i]],Lamborghini:[['Huracan GT3 EVO2',/Hurac[aá]n GT3 EVO2/i],['Urus Performante',/Urus Performante/i],['Temerario',/Temerario/i],['Miura P400',/Miura P400/i]]};
   let activeCasting='all';
   function castingFor(item){return(castings[item.brand]||[]).find(([,pattern])=>pattern.test(item.name))?.[0]||''}
   function renderCastingFilters(){const brand=$('#brand').value,box=$('#castingFilters');if(brand==='all'){activeCasting='all';box.classList.remove('visible');box.innerHTML='';return}const available=[...new Set([...models,...sets].filter(m=>m.brand===brand).map(castingFor).filter(Boolean))];if(!available.length){activeCasting='all';box.classList.remove('visible');box.innerHTML='';return}if(activeCasting!=='all'&&!available.includes(activeCasting))activeCasting='all';const buttons=`<button class="chip ${activeCasting==='all'?'active':''}" type="button" data-casting="all">All</button>`+available.map(name=>`<button class="chip ${activeCasting===name?'active':''}" type="button" data-casting="${esc(name)}">${esc(name)}</button>`).join('');box.innerHTML=`<span class="casting-label">Show</span><div class="casting-segments">${buttons}</div>`;box.classList.add('visible')}
-  function card(item){const isSet=Boolean(item.set),openAttr=isSet?`data-open-set="${esc(item.id)}"`:`data-open="${esc(item.id)}"`,setNumber=isSet?sets.indexOf(item)+1:0,code=item.prototype?item.id:isSet?`SET #${setNumber}`:`#${pad(item.number)}`,showCode=isSet||!String(item.photo||'').includes('-Main-Picture'),name=displayName(item.name),packaging=item.packaging||'Box Packaging';return `<article class="model-card ${isSet?'set-card':''} ${item.prototype?'prototype-card':''}" tabindex="0" ${openAttr}><div class="photo-tile">${photoMarkup({...item,name})}${showCode?`<span class="model-code">${code}</span>`:''}<span class="pill ${statusClass(item.status)}">${statusLabel(item.status)}</span></div><div class="card-body"><div class="card-meta-line"><span>${esc(releaseTypeFor(item))}</span><i></i>${packagingMeta(packaging)}</div><div class="model-name">${esc(name)}</div></div></article>`}
+  function card(item){const isSet=Boolean(item.set),openAttr=isSet?`data-open-set="${esc(item.id)}"`:`data-open="${esc(item.id)}"`,setNumber=isSet?sets.indexOf(item)+1:0,code=(item.prototype||item.newTooling)?item.id:isSet?`SET #${setNumber}`:`#${pad(item.number)}`,showCode=isSet||!String(item.photo||'').includes('-Main-Picture'),name=displayName(item.name),packaging=item.packaging||'Box Packaging';return `<article class="model-card ${isSet?'set-card':''} ${item.prototype?'prototype-card':''}" tabindex="0" ${openAttr}><div class="photo-tile">${photoMarkup({...item,name})}${showCode?`<span class="model-code">${code}</span>`:''}<span class="pill ${statusClass(item.status)}">${statusLabel(item.status)}</span></div><div class="card-body">${unknownInfo(item)?'':`<div class="card-meta-line"><span>${esc(releaseTypeFor(item))}</span><i></i>${packagingMeta(packaging)}</div>`}<div class="model-name">${titleMarkup(item)}</div></div></article>`}
   function syncSideNavigation(){const brand=$('#brand').value,status=$('#status').value,type=$('#type').value;document.querySelectorAll('[data-nav-type]').forEach(button=>button.classList.toggle('active',button.dataset.navType===type&&brand==='all'&&status==='all'));document.querySelectorAll('[data-nav-status]').forEach(button=>button.classList.toggle('active',button.dataset.navStatus===status));document.querySelectorAll('[data-nav-brand]').forEach(button=>button.classList.toggle('active',button.dataset.navBrand===brand));$('[data-nav-reset]').classList.toggle('active',type==='all'&&brand==='all'&&status==='all')}
   function renderGroup(key,title,list){return `<section class="catalog-group catalog-group-${key}"><div class="catalog-group-head"><span>${title}</span><b>${list.length}</b></div><div class="catalog-group-grid">${list.map(card).join('')}</div></section>`}
   function syncHomeHero(){const home=$('#search').value.trim()===''&&$('#status').value==='all'&&$('#brand').value==='all'&&$('#type').value==='all'&&activeCasting==='all'&&!location.hash.match(/^#(model|set)\//);$('#homeHero').hidden=!home}
   function renderModels(){
     const query=$('#search').value.trim().toLowerCase(),status=$('#status').value,brand=$('#brand').value,type=$('#type').value,sort=$('#sort').value;
     let list=[...sets,...models].filter(m=>{const text=[m.id,m.number,m.name,m.brand,m.sku,m.event,m.eventDate,m.driver,m.color,m.prototype?'prototype':m.set?'set':'model'].join(' ').toLowerCase();return(!query||text.includes(query))&&(status==='all'||m.status===status)&&(brand==='all'||m.brand===brand)&&(type==='all'||(type==='set'?m.set:!m.set))&&(activeCasting==='all'||castingFor(m)===activeCasting)});
-    list.sort((a,b)=>{const order=m=>m.set?-1:m.prototype?100000+Number(m.id.slice(2)):m.number||0,delta=order(a)-order(b);return sort==='reverse'?-delta:delta});
-    const grouped=type==='all'||list.some(m=>m.prototype),grid=$('#modelGrid');grid.classList.toggle('catalog-groups',grouped);if(grouped){const groups=[['sets','Special sets',list.filter(m=>m.set)],['models','Models',list.filter(m=>!m.set&&!m.prototype)],['prototypes','Prototypes',list.filter(m=>m.prototype)]].filter(([, ,items])=>items.length);grid.innerHTML=groups.map(([key,title,items])=>renderGroup(key,title,items)).join('')}else grid.innerHTML=list.map(card).join('');$('#emptyState').style.display=list.length?'none':'block';$('#resultCount').textContent=`${list.length} ${list.length===1?'item':'items'}`;syncSideNavigation();syncHomeHero()
+    list.sort((a,b)=>{const order=m=>m.set?-1:(m.prototype||m.newTooling)?100000+Number(m.id.slice(2)):m.number||0,delta=order(a)-order(b);return sort==='reverse'?-delta:delta});
+    const grouped=type==='all'||list.some(m=>m.prototype||m.newTooling),grid=$('#modelGrid');grid.classList.toggle('catalog-groups',grouped);if(grouped){const groups=[['sets','Special sets',list.filter(m=>m.set)],['models','Models',list.filter(m=>!m.set&&!m.prototype&&!m.newTooling)],['prototypes','Prototypes',list.filter(m=>m.prototype)],['newtoolings','New Tooling',list.filter(m=>m.newTooling)]].filter(([, ,items])=>items.length);grid.innerHTML=groups.map(([key,title,items])=>renderGroup(key,title,items)).join('')}else grid.innerHTML=list.map(card).join('');$('#emptyState').style.display=list.length?'none':'block';$('#resultCount').textContent=`${list.length} ${list.length===1?'item':'items'}`;syncSideNavigation();syncHomeHero()
   }
-  const brandLogo={Bugatti:'bugatti',Ford:'ford',Lamborghini:'lamborghini',McLaren:'mclaren',Porsche:'porsche',Toyota:'toyota'};
-  function setupStats(){const items=[...models,...sets],owned=items.filter(m=>m.status==='owned'),ordered=items.filter(m=>m.status==='ordered'),wishlist=items.filter(m=>m.status==='wishlist'),preorder=items.filter(m=>m.status==='preorder'),unavailable=items.filter(m=>m.status==='unavailable'),prototype=items.filter(m=>m.status==='prototype'),brands=[...new Set(items.map(m=>m.brand).filter(Boolean))].sort();$('#summaryTotal').textContent=items.length;$('#heroTotal').textContent=items.length;$('#summaryOwned').textContent=owned.length;$('#summaryOrdered').textContent=ordered.length;$('#summaryWishlist').textContent=wishlist.length;$('#summaryPreorder').textContent=preorder.length;$('#summaryUnavailable').textContent=unavailable.length;$('#summaryPrototype').textContent=prototype.length;const brandSelect=$('#brand');brands.forEach(b=>brandSelect.insertAdjacentHTML('beforeend',`<option value="${esc(b)}">${esc(b)}</option>`));$('#brandNav').innerHTML=brands.map(b=>`<button class="side-item brand-item" type="button" data-nav-brand="${esc(b)}"><img class="brand-mark" src="Assets/${esc(brandLogo[b])}.svg" alt="" aria-hidden="true">${esc(b)}<span class="nav-count">${items.filter(m=>m.brand===b&&!m.set).length}</span></button>`).join('')}
+  const brandLogo={Chevrolet:'chevrolet',Bugatti:'bugatti',Ford:'ford',Lamborghini:'lamborghini',McLaren:'mclaren',Porsche:'porsche',Toyota:'toyota'};
+  function setupStats(){const items=[...models,...sets],owned=items.filter(m=>m.status==='owned'),ordered=items.filter(m=>m.status==='ordered'),wishlist=items.filter(m=>m.status==='wishlist'),preorder=items.filter(m=>m.status==='preorder'),unavailable=items.filter(m=>m.status==='unavailable'),prototype=items.filter(m=>m.status==='prototype'),brands=[...new Set(items.map(m=>m.brand).filter(Boolean))].sort();$('#summaryTotal').textContent=items.length;$('#heroTotal').textContent=items.length;$('#summaryOwned').textContent=owned.length;$('#summaryOrdered').textContent=ordered.length;$('#summaryWishlist').textContent=wishlist.length;$('#summaryPreorder').textContent=preorder.length;$('#summaryUnavailable').textContent=unavailable.length;$('#summaryPrototype').textContent=prototype.length;$('#summaryNewTooling').textContent=items.filter(m=>m.newTooling).length;const brandSelect=$('#brand');brands.forEach(b=>brandSelect.insertAdjacentHTML('beforeend',`<option value="${esc(b)}">${esc(b)}</option>`));$('#brandNav').innerHTML=brands.map(b=>`<button class="side-item brand-item" type="button" data-nav-brand="${esc(b)}">${b==='Chevrolet'?'':`<img class="brand-mark" src="Assets/${esc(brandLogo[b])}.svg" alt="" aria-hidden="true">`}${esc(b)}<span class="nav-count">${items.filter(m=>m.brand===b&&!m.set).length}</span></button>`).join('')}
   function detailRows(item){
-    const unknown=item.prototype||item.unavailable,released=item.release&&item.release!=='Pre-Order';
+    const unknown=unknownInfo(item),released=item.release&&item.release!=='Pre-Order';
     const rows=[unknown?null:['releaseType','Release Type',releaseTypeFor(item),'important'],['brand','Manufacturer',item.brand],unknown?null:['calendar','Pre-Order Starting Date',item.preorderStarted],unknown?null:['calendar','Release',released&&item.release],['color','Colour',item.color],['event','Event',item.event],['calendar','Event Date',item.eventDate],unknown?null:['quantity','Quantity',item.quantity&&item.quantity+' pcs'],['driver','Driver',item.driver],unknown?null:['packaging','Packaging',item.packaging||'Box Packaging','important']];
     return rows.filter(row=>row&&row[2]).map(([icon,k,v,tone])=>detailCell(icon,k,v,tone)).join('')
   }
@@ -722,13 +746,13 @@ Quantity: 6000`;
     if(!item){location.hash='collection';return}
     $('#catalogView').style.display='none';$('#homeHero').hidden=true;
     const photo=photoFor(item);
-    const catalogSources=[photo,...(secondaryPhotoFiles[item.number]||[]).map(src=>`Assets/${src}`)].filter(Boolean);
+    const catalogSources=[photo,...(secondaryPhotoFiles[item.number]||[]).map(src=>src.includes('/')?src:`Assets/${src}`)].filter(Boolean);
     const cleanName=displayName(item.name);
     const visual=photo?`<img id="detailImage" src="${esc(photo)}" alt="${esc(cleanName)}" onerror="this.outerHTML='<div class=photo-absent><span>Photo not presented</span></div>'">`:`<div class="photo-absent"><span>Photo not presented</span></div>`;
     const photoChoices=catalogSources.length>1?`<div class="detail-photo-choices" aria-label="Catalog photo angles">${catalogSources.map((src,index)=>`<button class="detail-photo-choice ${index?'':'active'}" type="button" data-detail-photo="${esc(src)}" aria-label="Show catalog photo ${index+1}"><img src="${esc(src)}" alt=""></button>`).join('')}</div>`:'';
     const note=item.note||'';
     const description=note?`<div class="detail-note"><b>Description</b>${esc(note)}</div>`:'';
-    const reference=item.prototype?item.id:item.number?`#${pad(item.number)}`:'Special set';
+    const reference=(item.prototype||item.newTooling)?item.id:item.number?`#${pad(item.number)}`:'Special set';
     const referenceIcon=item.set?detailIcons.packaging:detailIcons.sku;
     const skuBadge=!item.prototype&&item.sku?`<span class="detail-sku"><i class="detail-pill-icon">${detailIcons.sku}</i>SKU: ${esc(item.sku)}</span>`:'';
     const identity=`<div class="detail-meta"><span class="detail-reference"><i class="detail-pill-icon">${referenceIcon}</i>${esc(reference)}</span>${skuBadge}<span class="detail-status ${statusClass(item.status)}"><i class="detail-pill-icon">${detailIcons.status}</i>${statusLabel(item.status)}</span></div>`;
@@ -740,8 +764,8 @@ Quantity: 6000`;
     const groups=item.set?[personalGroup,exhibitionGroup]:[personalGroup,prototypeGroup,exhibitionGroup];
     const tabs=groups.map((group,index)=>`<button class="photo-tab" id="photo-tab-${group.id}" type="button" role="tab" aria-label="${esc(group.label)}, ${group.photos.length} photos" aria-controls="photo-panel-${group.id}" aria-selected="${index?'false':'true'}" data-photo-tab="${group.id}">${group.label}</button>`).join('');
     const panels=groups.map(photoPanelMarkup).join('');
-    const photoLibrary=item.prototype||item.unavailable?'':`<section class="photo-library"><header class="photo-library-head"><h2 class="photo-library-title">Model Photography</h2><div class="photo-switcher"><span>Show</span><div class="photo-tabs" role="tablist" aria-label="Photo source">${tabs}</div></div></header>${panels}</section>`;
-    $('#detailView').innerHTML=`<button class="back-link" id="backToCollection" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg> Back to Collection</button><section class="detail-layout model-viewer"><div class="detail-media"><div class="detail-visual">${visual}</div>${photoChoices}</div><article class="detail-info"><h1 class="detail-title">${esc(cleanName)}</h1>${identity}<dl class="spec-list">${detailRows(item)||detailCell('status','Information','Not Presented')}</dl>${purchasePanel(item)}${description}</article></section>${photoLibrary}`;
+    const photoLibrary=unknownInfo(item)?'':`<section class="photo-library"><header class="photo-library-head"><h2 class="photo-library-title">Model Photography</h2><div class="photo-switcher"><span>Show</span><div class="photo-tabs" role="tablist" aria-label="Photo source">${tabs}</div></div></header>${panels}</section>`;
+    $('#detailView').innerHTML=`<button class="back-link" id="backToCollection" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg> Back to Collection</button><section class="detail-layout model-viewer"><div class="detail-media"><div class="detail-visual">${visual}</div>${photoChoices}</div><article class="detail-info"><h1 class="detail-title">${titleMarkup(item)}</h1>${identity}<dl class="spec-list">${detailRows(item)||detailCell('status','Information','Not Announced')}</dl>${purchasePanel(item)}${description}</article></section>${photoLibrary}`;
     $('#detailView').style.display='block';
     window.scrollTo({top:0,behavior:'instant'});
     $('#backToCollection').onclick=()=>location.hash='collection';

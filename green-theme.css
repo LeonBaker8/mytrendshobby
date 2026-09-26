@@ -62,3 +62,12 @@
 
 .model-viewer .spec-list{border-color:#285a48;background:linear-gradient(145deg,rgba(15,35,28,.92),rgba(8,12,10,.96));box-shadow:0 18px 50px rgba(0,0,0,.2)}
 .purchase-step{grid-template-columns:40px minmax(0,1fr);gap:12px}.purchase-step>i{width:40px;height:40px;display:grid;place-items:center;border:1px solid #285443;border-radius:9px;background:#09130f;color:#48cfa9}.purchase-step>i svg{width:19px;height:19px}.purchase-step>span{display:none}
+
+/* Catalogue titles and status palette */
+.model-name,.set-card .model-name{display:block;max-height:none;height:auto;-webkit-line-clamp:unset;overflow:visible}
+.name-line{display:block}.name-line+.name-line{margin-top:.25em}
+.detail-title .name-line+.name-line{font-size:.65em;line-height:1.3}
+.pill.prototype,.model-viewer .detail-meta .detail-status.prototype{background:#e8bd35!important;color:#211b04}
+.pill.newtooling,.model-viewer .detail-meta .detail-status.newtooling{background:#087f65!important;color:#fff}
+.status-dot.owned{background:var(--green)}.status-dot.ordered{background:#2c6cc4}.status-dot.preorder{background:#68208e}.status-dot.wishlist{background:#ece8ef}.status-dot.unavailable{background:#626b66}.status-dot.prototype{background:#e8bd35}.status-dot.newtooling{background:#087f65}
+.card-meta-line{flex-wrap:wrap;white-space:normal}
