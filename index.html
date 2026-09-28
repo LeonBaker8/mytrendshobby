@@ -741,8 +741,21 @@ Quantity: 6000`;
   }
   function renderModels(){
     const query=$('#search').value.trim().toLowerCase(),status=$('#status').value,brand=$('#brand').value,type=$('#type').value,sort=$('#sort').value;
-    let list=[...sets,...models].filter(m=>{const text=[m.id,m.number,m.name,m.brand,m.sku,m.event,m.eventDate,m.driver,m.color,m.prototype?'prototype':m.set?'set':'model'].join(' ').toLowerCase();return(!query||text.includes(query))&&(status==='all'||m.status===status)&&(brand==='all'||m.brand===brand)&&(type==='all'||(type==='set'?m.set:!m.set))&&(activeCasting==='all'||castingFor(m)===activeCasting)});
-    list.sort((a,b)=>{const order=m=>m.set?sets.indexOf(m):m.prototype?100000+prototypes.concat(numberedPrototypes).indexOf(m):m.newTooling?200000+newToolings.indexOf(m):m.number||0,delta=order(a)-order(b);return sort==='reverse'?-delta:delta});
+    let list=[...sets,...models].filter(m=>{
+      const numberedPrototypeSource=status==='prototype'&&!m.prototype&&numberedPrototypes.some(copy=>copy.number===m.number);
+      const text=[m.id,m.number,m.name,m.brand,m.sku,m.event,m.eventDate,m.driver,m.color,m.prototype?'prototype':m.set?'set':'model'].join(' ').toLowerCase();
+      return !numberedPrototypeSource&&(!query||text.includes(query))&&(status==='all'||m.status===status)&&(brand==='all'||m.brand===brand)&&(type==='all'||(type==='set'?m.set:!m.set))&&(activeCasting==='all'||castingFor(m)===activeCasting)
+    });
+    list.sort((a,b)=>{
+      if(a.prototype&&b.prototype){
+        const modelName=item=>(item.titleLines||[item.name])[0]||item.name;
+        const variantName=item=>(item.titleLines||[item.name]).slice(1).join(' ')||item.name;
+        const alpha=(x,y)=>String(x||'').localeCompare(String(y||''),'en',{sensitivity:'base',numeric:true});
+        const delta=alpha(a.brand,b.brand)||alpha(modelName(a),modelName(b))||alpha(variantName(a),variantName(b))||alpha(a.name,b.name);
+        return sort==='reverse'?-delta:delta
+      }
+      const order=m=>m.set?sets.indexOf(m):m.prototype?100000+prototypes.concat(numberedPrototypes).indexOf(m):m.newTooling?200000+newToolings.indexOf(m):m.number||0,delta=order(a)-order(b);return sort==='reverse'?-delta:delta
+    });
     renderCollectionBanner(list);
     const grouped=type==='all'||list.some(m=>m.prototype||m.newTooling),grid=$('#modelGrid');grid.classList.toggle('catalog-groups',grouped);if(grouped){const groups=[['sets','Special sets',list.filter(m=>m.set)],['models','Models',list.filter(m=>!m.set&&!m.prototype&&!m.newTooling)],['prototypes','Prototypes',list.filter(m=>m.prototype)],['newtoolings','New Tooling',list.filter(m=>m.newTooling)]].filter(([, ,items])=>items.length);grid.innerHTML=groups.map(([key,title,items])=>renderGroup(key,title,items)).join('')}else grid.innerHTML=list.map(card).join('');$('#emptyState').style.display=list.length?'none':'block';syncSideNavigation();syncHomeHero()
   }
