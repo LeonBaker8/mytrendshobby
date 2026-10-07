@@ -87,3 +87,25 @@
 .collection-banner-icon{display:grid;place-items:center;flex:0 0 70px;width:70px;height:70px;border:1px solid #28513f;border-radius:12px;background:#101b15;color:var(--green)}
 .collection-banner-icon img{width:52px;height:48px;object-fit:contain}.collection-banner-icon svg{width:32px;height:32px}.collection-banner-copy{min-width:0}.collection-banner-copy p{margin:0 0 7px;color:var(--green);font:500 9px var(--mono);letter-spacing:1.7px;text-transform:uppercase}.collection-banner-copy h1{margin:0;color:var(--text);font-weight:900;font-size:clamp(28px,3.3vw,46px);line-height:1.08;letter-spacing:-.045em;overflow-wrap:anywhere}.collection-banner-copy>span{display:block;margin-top:10px;color:var(--muted);font:500 10px var(--mono);letter-spacing:1.3px;text-transform:uppercase}
 @media(max-width:680px){.collection-banner{min-height:110px;padding:18px 15px;gap:14px;margin-bottom:20px}.collection-banner-icon{flex-basis:52px;width:52px;height:56px}.collection-banner-icon img{width:40px;height:40px}.collection-banner-copy h1{font-size:28px}.collection-banner-copy p{font-size:8px}.collection-banner-copy>span{font-size:9px}}
+
+
+/* Shared navigation, status colours, and distinct purchase information panel. */
+.nav-section-link{display:block;width:100%;border:0;background:transparent;text-align:left;cursor:pointer}
+.nav-section-link:hover{color:var(--green-2)}
+.purchase-panel{border-color:#53406d!important;background:linear-gradient(145deg,rgba(34,25,49,.96),rgba(12,10,17,.98))!important}
+.purchase-panel>header{border-bottom-color:#3d3052!important}
+.purchase-panel-icon{border-color:#705299!important;color:#c0a4ff!important;background:#191321!important}
+.purchase-panel header small,.purchase-step small{color:#a390b9!important}
+.purchase-panel h2{color:#d9c6ff!important}
+.purchase-step{border-color:#3e324e!important;background:#15111c!important}
+.purchase-step>i{color:#c0a4ff!important}
+.model-viewer .detail-meta .detail-status.owned{background:var(--green)!important;color:#03110c!important}
+.model-viewer .detail-meta .detail-status.ordered{background:#2c6cc4!important;color:#fff!important}
+.model-viewer .detail-meta .detail-status.preorder{background:#68208e!important;color:#fff!important}
+.model-viewer .detail-meta .detail-status.wishlist{background:#ece8ef!important;color:#27212b!important}
+.model-viewer .detail-meta .detail-status.unavailable{background:#626b66!important;color:#fff!important}
+.model-viewer .detail-meta .detail-status.prototype{background:#e8bd35!important;color:#211b04!important}
+.model-viewer .detail-meta .detail-status.newtooling{background:#087f65!important;color:#fff!important}
+.model-viewer .detail-meta .detail-status.cancelled{background:#a51d25!important;color:#fff!important}
+
+img[src="Assets/toyota.svg"]{filter:brightness(0) invert(1)!important}
