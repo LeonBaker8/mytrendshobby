@@ -99,6 +99,7 @@
 .purchase-panel h2{color:#d9c6ff!important}
 .purchase-step{border-color:#3e324e!important;background:#15111c!important}
 .purchase-step>i{color:#c0a4ff!important}
+.purchase-step>i{border-color:#705299!important;background:#191321!important;color:#c0a4ff!important}
 .model-viewer .detail-meta .detail-status.owned{background:var(--green)!important;color:#03110c!important}
 .model-viewer .detail-meta .detail-status.ordered{background:#2c6cc4!important;color:#fff!important}
 .model-viewer .detail-meta .detail-status.preorder{background:#68208e!important;color:#fff!important}
