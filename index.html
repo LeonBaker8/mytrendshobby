@@ -580,7 +580,7 @@ SKU: 241083(U)
 Car brand: Lamborghini
 Release Date: 16th October 2026
 Name: Lamborghini Huracán GT3 EVO2 Ultraman Zero Presentation
-Limited Edition: 3000
+Quantity: 3000
 Event: APAXPO 2026
 
 151
@@ -588,7 +588,7 @@ SKU: 241099(A)
 Car brand: Nissan
 Release Date: 16th October 2026
 Name: Nissan Nismo R34 GT-R Z-Tune Test 2004 Suzuka
-Limited Edition: 3000
+Quantity: 3000
 Event: APAXPO 2026
 
 152
@@ -596,7 +596,7 @@ SKU: 241084(R)
 Car brand: Porsche
 Release Date: 16th October 2026
 Name: Porsche 911 GT3 R Carbon Fibre
-Limited Edition: 3000
+Quantity: 3000
 Event: APAXPO 2026
 
 154
@@ -604,7 +604,7 @@ SKU: 241086(H)-BL
 Car brand: Porsche
 Release Date: 16th October 2026
 Name: Porsche 918 Spyder The Boring Concept #288
-Limited Edition: 6000
+Quantity: 6000
 Event: APAXPO 2026
 
 159
@@ -703,7 +703,7 @@ Quantity: 6000`;
       if(unavailableLines.every(Boolean)){unavailableLines.forEach(no=>{const n=Number(no[1]),name=no[2]||'Not Announced',base=collectionData[n]||{};models.push({id:String(n),number:n,name,brand:unavailableBrands[n]||'',unavailable:true,photo:photoFiles[n]||'',...base,packaging:base.packaging||'Box Packaging',status:'unavailable'})});return}
       if(/^\d{3}$/.test(first)){
         const f=fieldMap(lines.slice(1)),n=Number(first),base=collectionData[n]||{status:'preorder'};
-        models.push({id:String(n),number:n,name:f.Name||'Not Announced',brand:f['Car brand']||'',sku:f.SKU||'',release:f['Release Date']||'',color:f.Color||'',event:f.Event||'',quantity:f.Quantity||'',limitedEdition:f['Limited Edition']||'',driver:f.Driver||'',...base,packaging:base.packaging||'Box Packaging',status:releaseStatus(base.status,f['Release Date']),photo:photoFiles[n]||''});return;
+        models.push({id:String(n),number:n,name:f.Name||'Not Announced',brand:f['Car brand']||'',sku:f.SKU||'',release:f['Release Date']||'',color:f.Color||'',event:f.Event||'',quantity:f.Quantity||'',driver:f.Driver||'',...base,packaging:base.packaging||'Box Packaging',status:releaseStatus(base.status,f['Release Date']),photo:photoFiles[n]||''});return;
       }
       const f=fieldMap(lines.slice(1));if(f.SKU){const base=collectionData[f.SKU]||{status:'wishlist'};sets.push({id:f.SKU,name:first,brand:f['Car brand']||'',sku:f.SKU,release:f['Release Date']||'',event:f.Event||'',quantity:f.Quantity||'',...base,status:releaseStatus(base.status,f['Release Date']),photo:photoFiles[f.SKU]||'',set:true})}
     });
@@ -802,7 +802,7 @@ Quantity: 6000`;
   function setupStats(){const items=[...models,...sets],countedItems=items.filter(m=>!isUncountedPlaceholder(m)),owned=countedItems.filter(m=>m.status==='owned'),ordered=countedItems.filter(m=>m.status==='ordered'),wishlist=countedItems.filter(m=>m.status==='wishlist'),preorder=countedItems.filter(m=>m.status==='preorder'),unavailable=countedItems.filter(m=>m.status==='unavailable'),prototype=countedItems.filter(m=>m.status==='prototype'&&!m.prototypeCopy),brands=[...new Set(countedItems.map(m=>m.brand).filter(Boolean))].sort();$('#summaryTotal').textContent=countedItems.length;$('#heroTotal').textContent=countedItems.filter(m=>!m.prototypeCopy).length;$('#summaryOwned').textContent=owned.length;const statusSelect=$('#status'),ownedNav=document.querySelector('[data-nav-status="owned"]');let orderedNav=document.querySelector('[data-nav-status="ordered"]'),orderedOption=statusSelect.querySelector('option[value="ordered"]');if(ordered.length){if(!orderedNav){orderedNav=document.createElement('a');orderedNav.className='side-item side-status';orderedNav.href='#collection?status=ordered';orderedNav.dataset.navStatus='ordered';orderedNav.innerHTML='<span class="status-dot ordered"></span>Ordered <span class="nav-count" id="summaryOrdered">0</span>';ownedNav.after(orderedNav)}$('#summaryOrdered').textContent=ordered.length;if(!orderedOption){orderedOption=document.createElement('option');orderedOption.value='ordered';orderedOption.textContent='Ordered';statusSelect.insertBefore(orderedOption,statusSelect.querySelector('option[value="preorder"]'))}}else{orderedNav?.remove();orderedOption?.remove()}$('#summaryWishlist').textContent=wishlist.length;$('#summaryPreorder').textContent=preorder.length;$('#summaryUnavailable').textContent=unavailable.length;$('#summaryPrototype').textContent=prototype.length;$('#summaryNewTooling').textContent=countedItems.filter(m=>m.newTooling).length;$('#summaryCancelled').textContent=countedItems.filter(m=>m.status==='cancelled').length;const ticker=brands.map(b=>`<span class="ticker-brand"><img src="Assets/${esc(brandLogo[b])}" alt="">${esc(b.toUpperCase())}</span><i>•</i>`).join('');$('.brand-ticker').innerHTML=Array.from({length:3},()=>`<div>${ticker}</div>`).join('');const brandSelect=$('#brand');brands.forEach(b=>brandSelect.insertAdjacentHTML('beforeend',`<option value="${esc(b)}">${esc(b)}</option>`));$('#brandNav').innerHTML=brands.map(b=>`<a class="side-item brand-item" href="${collectionHref({brand:b})}" data-nav-brand="${esc(b)}"><img class="brand-mark" src="Assets/${esc(brandLogo[b])}" alt="" aria-hidden="true">${esc(b)}<span class="nav-count">${countedItems.filter(m=>m.brand===b&&!m.prototypeCopy).length}</span></a>`).join('')}
   function detailRows(item){
     const unknown=unknownInfo(item),released=item.release&&item.release!=='Pre-Order';
-    const rows=[unknown||item.status==='cancelled'?null:['releaseType','Release Type',releaseTypeFor(item),'important'],['brand','Manufacturer',item.brand||'Not Announced'],unknown?null:['calendar','Pre-Order Starting Date',item.preorderStarted],unknown?null:['calendar','Release',released&&item.release],['color','Colour',item.color],['event','Event',item.event],['calendar','Event Date',item.eventDate],unknown?null:['quantity',item.limitedEdition?'Limited Edition': 'Quantity',item.limitedEdition?item.limitedEdition:item.quantity&&item.quantity+' pcs'],['driver','Driver',item.driver],unknown||item.status==='cancelled'?null:['packaging','Packaging',item.packaging||'Box Packaging','important']];
+    const rows=[unknown||item.status==='cancelled'?null:['releaseType','Release Type',releaseTypeFor(item),'important'],['brand','Manufacturer',item.brand||'Not Announced'],unknown?null:['calendar','Pre-Order Starting Date',item.preorderStarted],unknown?null:['calendar','Release',released&&item.release],['color','Colour',item.color],['event','Event',item.event],['calendar','Event Date',item.eventDate],unknown?null:['quantity','Quantity',item.quantity],['driver','Driver',item.driver],unknown||item.status==='cancelled'?null:['packaging','Packaging',item.packaging||'Box Packaging','important']];
     const visible=rows.filter(row=>row&&row[2]);if(visible.length%2){const manufacturer=visible.findIndex(row=>row[0]==='brand');if(manufacturer>0)visible.unshift(...visible.splice(manufacturer,1))}return visible.map(([icon,k,v,tone],index)=>detailCell(icon,k,v,`${tone||''} ${visible.length%2&&index===0?'full-row':visible.length%2?(index%2?'pair-left':'pair-right'):(index%2?'pair-right':'pair-left')}`)).join('')
   }
   function purchasePanel(item){
