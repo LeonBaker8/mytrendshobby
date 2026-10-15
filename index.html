@@ -575,6 +575,14 @@ Release Date: Pre-Order
 Name: Lamborghini Huracán GT3 EVO2 CHINA GT ZHUHAI 2026 #63
 Driver: Alex Liang Jiatong, Anson Chen Yechong
 
+150
+SKU: 241083(U)
+Car brand: Lamborghini
+Release Date: 16th October 2026
+Name: Lamborghini Huracán GT3 EVO2 Ultraman Zero Presentation
+Limited Edition: 3000
+Event: APAXPO 2026
+
 151
 SKU: 241099(A)
 Car brand: Nissan
@@ -584,10 +592,19 @@ Limited Edition: 3000
 Event: APAXPO 2026
 
 152
+SKU: 241084(R)
 Car brand: Porsche
 Release Date: 16th October 2026
 Name: Porsche 911 GT3 R Carbon Fibre
 Limited Edition: 3000
+Event: APAXPO 2026
+
+154
+SKU: 241086(H)-BL
+Car brand: Porsche
+Release Date: 16th October 2026
+Name: Porsche 918 Spyder The Boring Concept #288
+Limited Edition: 6000
 Event: APAXPO 2026
 
 159
@@ -673,6 +690,9 @@ Quantity: 6000`;
   const secondaryPhotoFiles={117:['Catalog Pictures/117/Main Picture/117-2nd.png']};
   const unavailableBrands={79:'Toyota',80:'McLaren',81:'McLaren',86:'McLaren',87:'McLaren',101:'Porsche',102:'Porsche',103:'Porsche',105:'Porsche'};
 
+  collectionData[150]={status:'wishlist',packaging:'Acrylic Box Packaging'};
+  collectionData[152].sku='241084(R)';
+  collectionData[154]={status:'wishlist',packaging:'Blister Packaging',note:"Of the 6,000 pieces produced, 3,000 were sold at APAXPO 2026, with the remaining 3,000 made available through The Boring Concept's online shop."};
   function fieldMap(lines){const info={};lines.forEach(line=>{const at=line.indexOf(':');if(at>0)info[line.slice(0,at).trim()]=line.slice(at+1).trim()});return info}
   function normalizeStatus(status){return status||'wishlist'}
   function releaseStatus(base,release){return base==='owned'||base==='ordered'?base:release==='Pre-Order'?'preorder':normalizeStatus(base)}
@@ -704,6 +724,8 @@ Quantity: 6000`;
     item.titleLines=lines;item.name=lines.join(' ');item.brand=lines[0].split(' ')[0];
   }
   for(const n of [79,80,81,86,87,101,102,103,105]){const item=archive.models.find(model=>model.number===n);if(item){delete item.unavailable;if(n!==79)item.status='prototype';item.packaging='Box Packaging';item.regularRelease=true}}
+  updatedPhotos[150]='Catalog Pictures/150/Main Picture/150-Main-Picture.png';
+  updatedPhotos[154]='Catalog Pictures/154/Main Picture/154-Main-Picture.png';
   for(const item of archive.models){if(updatedPhotos[item.number])item.photo=updatedPhotos[item.number];if(prototypeFiles[item.number])item.prototypePhotos=prototypeFiles[item.number];if(prototypeNames[item.number]){item.titleLines=prototypeNames[item.number];item.name=item.titleLines.join(' ');item.brand=item.titleLines[0].startsWith('McLaren')?'McLaren':'Porsche'} }
   const maxNumber=Math.max(164,...archive.models.map(m=>m.number||0));
   for(let number=79;number<=maxNumber;number++){
