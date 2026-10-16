@@ -785,7 +785,7 @@ Quantity: 6000`;
       return !numberedPrototypeSource&&(status==='prototype'||!m.prototypeCopy)&&(!query||text.includes(query))&&(status==='all'||m.status===status)&&(brand==='all'||m.brand===brand)&&(type==='all'||(type==='set'?m.set:!m.set))&&(activeCasting==='all'||castingFor(m)===activeCasting)
     });
     list.sort((a,b)=>{
-      if(a.prototype&&b.prototype){
+      if((a.prototype&&b.prototype)||(a.newTooling&&b.newTooling)){
         const modelName=item=>(item.titleLines||[item.name])[0]||item.name;
         const variantName=item=>(item.titleLines||[item.name]).slice(1).join(' ')||item.name;
         const alpha=(x,y)=>String(x||'').localeCompare(String(y||''),'en',{sensitivity:'base',numeric:true});
