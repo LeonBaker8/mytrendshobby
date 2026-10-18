@@ -100,8 +100,6 @@
 .purchase-step{border-color:#3e324e!important;background:#15111c!important}
 .purchase-step>i{color:#c0a4ff!important}
 .purchase-step>i{border-color:#705299!important;background:#191321!important;color:#c0a4ff!important}
-.purchase-step{border-color:#294337!important;background:#0d1712!important}
-.purchase-step>i{border-color:#285443!important;background:#09130f!important;color:#48cfa9!important}
 .model-viewer .detail-meta .detail-status.owned{background:var(--green)!important;color:#03110c!important}
 .model-viewer .detail-meta .detail-status.ordered{background:#2c6cc4!important;color:#fff!important}
 .model-viewer .detail-meta .detail-status.preorder{background:#68208e!important;color:#fff!important}
@@ -117,11 +115,11 @@ img[src="Assets/toyota.svg"]{filter:brightness(0) invert(1)!important}
 .release-version-grid{grid-column:1/-1;display:grid;grid-template-columns:1fr;gap:14px;padding:14px 18px 18px}
 .release-version{grid-column:auto;min-width:0;margin:0;padding:0;border:0;border-radius:0;background:transparent;overflow:visible}
 .release-version h3{margin:0;padding:16px 18px;color:#fff;background:#10251c;border-bottom:1px solid #285443;font-size:15px;font-weight:800;letter-spacing:.04em}
-.model-viewer .spec-list:has(.release-version){display:block;margin:0;border:1px solid #285a48;border-radius:20px;background:linear-gradient(145deg,rgba(15,35,28,.92),rgba(8,12,10,.96));box-shadow:0 18px 50px rgba(0,0,0,.2);overflow:hidden}
-.model-viewer .spec-list:has(.release-version)>.detail-cell{min-height:82px;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:17px 20px;border:0!important;border-bottom:1px solid #244235!important;border-radius:0;background:transparent}
+.model-viewer .spec-list.release-spec-list{display:block;margin:0;border:1px solid #285a48;border-radius:20px;background:linear-gradient(145deg,rgba(15,35,28,.92),rgba(8,12,10,.96));box-shadow:0 18px 50px rgba(0,0,0,.2);overflow:hidden}
+.model-viewer .spec-list.release-spec-list>.detail-cell{min-height:82px;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:17px 20px;border:0!important;border-bottom:1px solid #244235!important;border-radius:0;background:transparent}
 .release-version dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px 4px}
 .release-version .detail-cell{min-height:70px;grid-template-columns:40px minmax(0,1fr);align-items:center;gap:12px;padding:12px;border:1px solid #294337!important;border-radius:11px;background:#0d1712}
-.model-viewer .spec-list:has(.release-version) .release-version .detail-cell{border:1px solid #294337!important}
+.model-viewer .spec-list.release-spec-list .release-version .detail-cell{border:1px solid #294337!important}
 .release-version .detail-cell-icon{width:40px;height:40px;display:grid;place-items:center;border:1px solid #285443;border-radius:9px;background:#09130f;color:#48cfa9!important}
 .release-version .detail-cell-icon svg{width:19px;height:19px}
 .release-version .detail-cell dt{margin:0 0 5px}
@@ -129,11 +127,12 @@ img[src="Assets/toyota.svg"]{filter:brightness(0) invert(1)!important}
 @media(max-width:760px){.release-version-grid{grid-template-columns:1fr;padding:10px}.release-version dl{grid-template-columns:1fr}.release-version .detail-cell{min-height:70px}}
 .model-viewer .release-version.stacked-details dl{grid-template-columns:repeat(2,minmax(0,1fr))}
 .model-viewer .release-version.stacked-details .detail-cell{min-height:70px}
-.model-viewer .spec-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:14px;border:1px solid #285a48;border-radius:20px;background:linear-gradient(145deg,rgba(15,35,28,.92),rgba(8,12,10,.96));box-shadow:0 18px 50px rgba(0,0,0,.2);overflow:hidden}
-.model-viewer .spec-list .detail-cell{min-height:70px;grid-template-columns:40px minmax(0,1fr);align-items:center;gap:12px;padding:12px;border:1px solid #294337!important;border-radius:11px;background:#0d1712}
-.model-viewer .spec-list .detail-cell:nth-child(n){border:1px solid #294337!important}
-.model-viewer .spec-list .detail-cell-icon{width:40px;height:40px;display:grid;place-items:center;border:1px solid #285443;border-radius:9px;background:#09130f;color:#48cfa9!important}
-.model-viewer .spec-list .detail-cell-icon svg{width:19px;height:19px}
-.model-viewer .spec-list .detail-cell.full-row{grid-column:1/-1}
-.model-card{background:#0d1712;border-color:#294337}
-@media(max-width:680px){.model-viewer .spec-list{grid-template-columns:1fr;padding:10px}.model-viewer .spec-list .detail-cell.full-row{grid-column:auto}}
+.model-viewer .spec-list:not(.release-spec-list){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:14px;border:1px solid #285a48;border-radius:20px;background:linear-gradient(145deg,rgba(15,35,28,.92),rgba(8,12,10,.96));box-shadow:0 18px 50px rgba(0,0,0,.2);overflow:hidden}
+.model-viewer .spec-list:not(.release-spec-list) .detail-cell{min-height:70px;grid-template-columns:40px minmax(0,1fr);align-items:center;gap:12px;padding:12px;border:1px solid #294337!important;border-radius:11px;background:#0d1712}
+.model-viewer .spec-list:not(.release-spec-list) .detail-cell:nth-child(n){border:1px solid #294337!important}
+.model-viewer .spec-list:not(.release-spec-list) .detail-cell-icon{width:40px;height:40px;display:grid;place-items:center;border:1px solid #285443;border-radius:9px;background:#09130f;color:#48cfa9!important}
+.model-viewer .spec-list:not(.release-spec-list) .detail-cell-icon svg{width:19px;height:19px}
+.model-viewer .spec-list:not(.release-spec-list) .detail-cell.full-row{grid-column:1/-1}
+@media(max-width:680px){.model-viewer .spec-list:not(.release-spec-list){grid-template-columns:1fr;padding:10px}.model-viewer .spec-list:not(.release-spec-list) .detail-cell.full-row{grid-column:auto}}
+.model-viewer .spec-list.release-spec-list{display:block;margin:0;padding:0;border:1px solid #285a48;border-radius:20px;background:linear-gradient(145deg,rgba(15,35,28,.92),rgba(8,12,10,.96));box-shadow:0 18px 50px rgba(0,0,0,.2);overflow:hidden}
+.model-viewer .spec-list.release-spec-list>.detail-cell{min-height:82px;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:17px 20px;border:0!important;border-bottom:1px solid #244235!important;border-radius:0;background:transparent}

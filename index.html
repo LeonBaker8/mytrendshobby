@@ -161,7 +161,7 @@
     img[src="Assets/audi.svg"]{filter:brightness(0) invert(1)!important}
     .brand-item.active img[src="Assets/audi.svg"]{filter:brightness(0)!important}
   </style>
-  <link rel="stylesheet" href="green-theme.css?v=3.31">
+  <link rel="stylesheet" href="green-theme.css?v=3.32">
 </head>
 <body>
   <div class="app-layout">
@@ -852,6 +852,7 @@ Quantity: 6000`;
     const panels=groups.map(photoPanelMarkup).join('');
     const photoLibrary=unknownInfo(item)||item.status==='cancelled'||!groups.length?'':`<section class="photo-library"><header class="photo-library-head"><h2 class="photo-library-title">Model Photography</h2><div class="photo-switcher"><span>Show</span><div class="photo-tabs" role="tablist" aria-label="Photo source">${tabs}</div></div></header>${panels}</section>`;
     $('#detailView').innerHTML=`<button class="back-link" id="backToCollection" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg> Back to Collection</button><section class="detail-layout model-viewer"><div class="detail-media"><div class="detail-visual">${visual}</div>${photoChoices}</div><article class="detail-info"><h1 class="detail-title">${titleMarkup(item)}</h1>${identity}<dl class="spec-list">${detailRows(item)||detailCell('status','Information','Not Announced')}</dl>${purchasePanel(item)}${description}</article></section>${photoLibrary}`;
+    $('#detailView .spec-list').classList.toggle('release-spec-list',Boolean(item.releaseVersions));
     $('#detailView').style.display='block';
     window.scrollTo({top:0,behavior:'instant'});
     $('#backToCollection').onclick=()=>location.hash=lastCollectionHash;
