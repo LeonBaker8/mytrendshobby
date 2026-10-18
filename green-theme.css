@@ -111,8 +111,8 @@
 
 img[src="Assets/toyota.svg"]{filter:brightness(0) invert(1)!important}
 
-/* Side-by-side release versions for models with multiple editions. */
-.release-version-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:14px}
+/* Stacked release panels with side-by-side details. */
+.release-version-grid{grid-column:1/-1;display:grid;grid-template-columns:1fr;gap:14px;padding:14px}
 .release-version{min-width:0;margin:0;border:1px solid #285443;border-radius:16px;background:linear-gradient(160deg,#101a15,#0b0f0d);overflow:hidden}
 .release-version h3{margin:0;padding:16px 18px;color:#fff;background:#10251c;border-bottom:1px solid #285443;font-size:15px;font-weight:800;letter-spacing:.04em}
 .release-version dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
