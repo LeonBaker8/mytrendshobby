@@ -161,7 +161,7 @@
     img[src="Assets/audi.svg"]{filter:brightness(0) invert(1)!important}
     .brand-item.active img[src="Assets/audi.svg"]{filter:brightness(0)!important}
   </style>
-  <link rel="stylesheet" href="green-theme.css?v=3.25">
+  <link rel="stylesheet" href="green-theme.css?v=3.26">
 </head>
 <body>
   <div class="app-layout">
@@ -839,7 +839,7 @@ Quantity: 6000`;
     const description=note?`<div class="detail-note"><b>Description</b>${esc(note)}</div>`:'';
     const reference=item.prototype?(item.number?`#${pad(item.number)}`:item.sku?'':'Prototype'):item.newTooling?'New Tooling':item.status==='cancelled'?'Cancelled model':item.number?`#${pad(item.number)}`:'Special set';
     const referenceIcon=item.set?detailIcons.packaging:detailIcons.sku;
-    const skuBadge=item.sku?`<span class="detail-sku"><i class="detail-pill-icon">${detailIcons.sku}</i>SKU: ${esc(item.sku)}</span>`:'';
+    const skuBadge=item.sku&&!item.releaseVersions?`<span class="detail-sku"><i class="detail-pill-icon">${detailIcons.sku}</i>SKU: ${esc(item.sku)}</span>`:'';
     const referenceBadge=item.status==='cancelled'||(item.newTooling&&!item.sku&&!item.number)||(item.prototype&&!item.sku&&!item.number)||!reference?'':`<span class="detail-reference"><i class="detail-pill-icon">${referenceIcon}</i>${esc(reference)}</span>`;
     const identity=`<div class="detail-meta">${referenceBadge}${skuBadge}<span class="detail-status ${statusClass(item.status)}"><i class="detail-pill-icon">${detailIcons.status}</i>${statusLabel(item.status)}</span></div>`;
     const personalPhotos=archivePhotos(item.personalPhotos,item,'Personal photo');
