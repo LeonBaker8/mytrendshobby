@@ -123,3 +123,6 @@ img[src="Assets/toyota.svg"]{filter:brightness(0) invert(1)!important}
 .release-version .detail-cell dd{overflow-wrap:anywhere}
 @media(max-width:760px){.release-version-grid{grid-template-columns:1fr;padding:10px}.release-version .detail-cell{min-height:70px}}
 .model-viewer .release-version .detail-cell.row-continuation{border-bottom:1px solid #26332d!important}
+.model-viewer .release-version.stacked-details dl{grid-template-columns:1fr}
+.model-viewer .release-version.stacked-details .detail-cell{min-height:68px;border-right:0!important;border-bottom:1px solid #26332d!important}
+.model-viewer .release-version.stacked-details .detail-cell:last-child{border-bottom:0!important}
