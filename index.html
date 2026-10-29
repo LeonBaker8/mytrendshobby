@@ -789,7 +789,7 @@ Quantity: 6000`;
   function detailCell(icon,label,value,tone=''){const brandAsset=icon==='brand'&&brandLogo[value],resolvedIcon=icon==='packaging'&&/blister/i.test(value)?'blister':icon,iconMarkup=brandAsset?`<img class="detail-brand-logo" src="Assets/${esc(brandAsset)}" alt="">`:detailIcons[resolvedIcon]||detailIcons.sku;return`<div class="detail-cell ${tone}"><span class="detail-cell-icon ${brandAsset?'brand-logo-icon':''}">${iconMarkup}</span><div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div></div>`}
   function fitPhoto(img){const tile=img.closest('.photo-tile');if(img.naturalWidth&&img.naturalHeight&&tile)tile.style.setProperty('--photo-ratio',`${img.naturalWidth} / ${img.naturalHeight}`)}
   function imageMissing(img){img.insertAdjacentHTML('afterend','<div class="photo-empty"><span>Photo not presented</span></div>');img.remove()}
-  const imageCacheVersion='20261029-01';
+  const imageCacheVersion='20261029-142920';
   function versionPhoto(path){return path?`${path}?v=${encodeURIComponent(imageCacheVersion)}`:path}
   function photoFor(item){const photo=item.photo||(!item.prototype?'Assets/NotPresented.png':'');return versionPhoto((photo&&!photo.includes('/')?`Assets/${photo}`:photo).split('/').map(encodeURIComponent).join('/'))}
   function photoMarkup(item,cls=''){const photo=photoFor(item);return photo?`<img class="${cls}" src="${esc(photo)}" alt="${esc(item.name)}" onload="fitPhoto(this)" onerror="imageMissing(this)">`:`<div class="photo-empty"><span>Photo not presented</span></div>`}
